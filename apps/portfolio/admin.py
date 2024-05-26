@@ -1,7 +1,7 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
-from apps.portfolio.models import Service, Project, Inquiry, SiteSettings, Client
+from apps.portfolio.models import Service, Project, Inquiry, Client
 
 
 @admin.register(Service)
@@ -23,7 +23,3 @@ class InquiryAdmin(admin.ModelAdmin):
 class ClientAdmin(admin.ModelAdmin):
     pass
 
-
-@admin.register(SiteSettings)
-class SocialAdmin(admin.ModelAdmin):
-    pass

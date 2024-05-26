@@ -60,20 +60,3 @@ class Inquiry(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class SiteSettings(BaseModel):
-    SOCIALS_SCHEMA = {"type": "list", "items": {
-        "keys": {"icon": {"type": "string", "title": "Иконка"}, "link": {"type": "string", "title": "Ссылка"},
-                 "label": {"type": "string", "title": "Название"},
-                 "show_in_footer": {"type": "boolean", "title": "Отображать в футере", "default": False},
-                 "show_in_header": {"type": "boolean", "title": "Отображать в шапке", "default": False}},
-        "type": "dict"}, "title": "Контакты", "max_items": 5, "min_items": 1}
-    socials = JSONField(schema=SOCIALS_SCHEMA)
-    phone = models.CharField(max_length=255)
-    email = models.EmailField()
-    telegram = models.CharField(max_length=255)
-
-    class Meta:
-        verbose_name = 'Site Setting'
-        verbose_name_plural = 'Site Settings'
