@@ -1,0 +1,238 @@
+[
+  {
+    "model": "settings.sitesetting",
+    "pk": 1,
+    "fields": {
+      "key": "contacts",
+      "description": "Контакты",
+      "data": {
+        "email": "someone@example.com",
+        "phone": "+998 (98) 123-45-67",
+        "telegram": "https://t.me/",
+        "instagram": "https://instagram.com/",
+        "facebook": "https://facebook.com/",
+        "address_ru": "Ташкент, Яшнабадский район, Чулпон 1",
+        "address_uz": "Ташкент, Яшнабадский район, Чулпон 1 (Uz)",
+        "working_hours_ru": "Понедельник-Суббота, 9:00 - 18:00",
+        "working_hours_uz": "Понедельник-Суббота, 9:00 - 18:00 (Uz)"
+      },
+      "schema": {
+        "type": "object",
+        "title": "Контакты",
+        "keys": {
+          "email": {
+            "type": "string",
+            "title": "Эл. почта"
+          },
+          "phone": {
+            "type": "string",
+            "title": "Номер телефона"
+          },
+          "telegram": {
+            "type": "string",
+            "title": "Telegram"
+          },
+          "instagram": {
+            "type": "string",
+            "title": "Instagram"
+          },
+          "facebook": {
+            "type": "string",
+            "title": "Facebook"
+          },
+          "address": {
+            "type": "string",
+            "translated": true,
+            "title": "Адрес"
+          },
+          "working_hours": {
+            "type": "string",
+            "translated": true,
+            "title": "Время работы"
+          }
+        }
+      }
+    }
+  },
+  {
+    "model": "settings.sitesetting",
+    "pk": 3,
+    "fields": {
+      "key": "index",
+      "description": "Главная страница",
+      "data": {
+        "main_block": {
+          "header_ru": "поможем вашему бизнесу возрасти, достигайте высот вместе с нами",
+          "header_uz": "поможем вашему бизнесу возрасти, достигайте высот вместе с нами (Uz)",
+          "text_ru": "Эксперты в цифровом мире, где креатив и инновации объединяются. Вместе создаем уникальный след вашего бизнеса онлайн, обеспечивая рост и успех.",
+          "text_uz": "Эксперты в цифровом мире, где креатив и инновации объединяются. Вместе создаем уникальный след вашего бизнеса онлайн, обеспечивая рост и успех. (Uz)"
+        },
+        "recent_works": {
+          "text_ru": "Погружайтесь в наше портфолио и открывайте мир вдохновляющих историй успеха, которые мы создаем с нашими клиентами.",
+          "text_uz": "Погружайтесь в наше портфолио и открывайте мир вдохновляющих историй успеха, которые мы создаем с нашими клиентами. (Uz)"
+        },
+        "know_more": {
+          "text_ru": "Arpoool - мы не просто компания, мы архитекторы цифровых миров. Воплощаем уникальные идеи в технологические шедевры, прокладывая путь к новым горизонтам вашего бизнеса. С нами вы не просто следуете трендам, вы их создаете, обретая цифровое наследие, которое завораживает и вдохновляет.",
+          "text_uz": "Arpoool - мы не просто компания, мы архитекторы цифровых миров. Воплощаем уникальные идеи в технологические шедевры, прокладывая путь к новым горизонтам вашего бизнеса. С нами вы не просто следуете трендам, вы их создаете, обретая цифровое наследие, которое завораживает и вдохновляет. (Uz)",
+          "cards": [
+            {
+              "number": null,
+              "plus_sign": true,
+              "text_ru": "Успешных клиентов которым мы вложили вклад в развитие бизнеса",
+              "text_uz": "Успешных клиентов которым мы вложили вклад в развитие бизнеса (Uz)"
+            },
+            {
+              "number": 25,
+              "plus_sign": true,
+              "text_ru": "Успешных клиентов которым мы вложили вклад в развитие бизнеса",
+              "text_uz": "Успешных клиентов которым мы вложили вклад в развитие бизнеса (Uz)"
+            },
+            {
+              "number": 12,
+              "plus_sign": true,
+              "text_ru": "Успешных клиентов которым мы вложили вклад в развитие бизнеса",
+              "text_uz": "Успешных клиентов которым мы вложили вклад в развитие бизнеса (Uz)"
+            },
+            {
+              "number": 110,
+              "plus_sign": false,
+              "text_ru": "Успешных клиентов которым мы вложили вклад в развитие бизнеса",
+              "text_uz": "Успешных клиентов которым мы вложили вклад в развитие бизнеса (Uz)"
+            }
+          ]
+        }
+      },
+      "schema": {
+        "type": "object",
+        "title": "Главная страница",
+        "keys": {
+          "main_block": {
+            "type": "object",
+            "title": "Главный блок",
+            "keys": {
+              "header": {
+                "type": "string",
+                "translated": true,
+                "title": "Загловок",
+                "widget": "textarea"
+              },
+              "text": {
+                "type": "string",
+                "translated": true,
+                "title": "Текст",
+                "widget": "textarea"
+              }
+            }
+          },
+          "recent_works": {
+            "type": "object",
+            "title": "\"Недавние работы\"",
+            "keys": {
+              "text": {
+                "type": "string",
+                "translated": true,
+                "title": "Текст",
+                "widget": "textarea"
+              }
+            }
+          },
+          "know_more": {
+            "type": "object",
+            "title": "\"Узнайте о нас больше\"",
+            "keys": {
+              "text": {
+                "type": "string",
+                "translated": true,
+                "title": "Текст",
+                "widget": "textarea"
+              },
+              "cards": {
+                "type": "array",
+                "title": "Карточки",
+                "items": {
+                  "type": "object",
+                  "title": "Карточка",
+                  "keys": {
+                    "number": {
+                      "type": "number",
+                      "title": "Число"
+                    },
+                    "plus_sign": {
+                      "type": "boolean",
+                      "title": "Добавить знак плюса",
+                      "default": false
+                    },
+                    "text": {
+                      "type": "string",
+                      "translated": true,
+                      "title": "Текст",
+                      "widget": "textarea"
+                    }
+                  }
+                },
+                "min_items": 2,
+                "max_items": 8
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "model": "settings.sitesetting",
+    "pk": 4,
+    "fields": {
+      "key": "footer",
+      "description": "Футер",
+      "data": {
+        "company": "OOO KIDISI",
+        "rights": "All rights reserved. 2015-2024"
+      },
+      "schema": {
+        "type": "object",
+        "keys": {
+          "company": {
+            "type": "string",
+            "title": "Компания"
+          },
+          "rights": {
+            "type": "string",
+            "title": "Права"
+          }
+        }
+      }
+    }
+  },
+  {
+    "model": "settings.sitesetting",
+    "pk": 5,
+    "fields": {
+      "key": "portfolio",
+      "description": "Страница Портфолио",
+      "data": {
+        "header_ru": "наш творческий\nдух определяет наше\nнаследие",
+        "header_uz": "наш творческий\nдух определяет наше\nнаследие (Uz)",
+        "text_ru": "Эксперты в цифровом мире, где креатив и инновации объединяются. Вместе создаем уникальный след вашего бизнеса онлайн, обеспечивая рост и успех.",
+        "text_uz": "Эксперты в цифровом мире, где креатив и инновации объединяются. Вместе создаем уникальный след вашего бизнеса онлайн, обеспечивая рост и успех. (Uz)"
+      },
+      "schema": {
+        "type": "object",
+        "keys": {
+          "header": {
+            "type": "string",
+            "translated": true,
+            "title": "Заголовок",
+            "widget": "textarea"
+          },
+          "text": {
+            "type": "string",
+            "translated": true,
+            "title": "Текст",
+            "widget": "textarea"
+          }
+        }
+      }
+    }
+  }
+]
