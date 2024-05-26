@@ -1,0 +1,63 @@
+{% extends 'chunks/base.html' %}
+{% load static %}
+{% block content %}
+    <section class="w-[1146px] m-auto mt-[40px] flex items-center">
+        <div class="w-[50%] mr-5">
+            <h2 class="days-one-regular font-normal text-[55px] text-[#161616] mb-2.5">{{ service.name }}</h2>
+            <p class="text-[18px] text-[#161616] mb-[30px]">Эксперты в цифровом мире, где креатив и инновации
+                объединяются.
+                Вместе создаем уникальный след вашего бизнеса
+                онлайн, обеспечивая рост и успех.</p>
+            <a href="{% url 'contact' %}" class="border-[1px] border-[#9000FF] py-2.5 px-5 text-[14px] text-[#161616] rounded-[100px]">
+                Консультация
+            </a>
+        </div>
+        <div class="w-[50%]">
+            <img src="{{ service.picture.url }}" alt="">
+        </div>
+    </section>
+
+    <section class="w-[1146px] m-auto mt-[130px]">
+        <h3 class="days-one-regular font-normal text-[30px] text-[#161616] mb-2.5">{{ service.name }}</h3>
+        <p class="text-[18px] text-[#161616]">{{ service.description }}</p>
+    </section>
+
+    <section class="w-full m-auto mt-[70px] relative" style="padding-left: calc((100vw - 1146px) / 2);">
+        <h4 class="text-[40px] text-[#161616] days-one-regular font-normal">НАШИ РАБОТЫ</h4>
+        <div class="relative mt-10">
+            <div class="flex gap-5 overflow-x-auto scrollbar-hide">
+                {% for project in projects %}
+                    <div class="flex-shrink-0">
+                        <div>
+                            <img src="{{ project.preview.url }}" alt="" class="h-[328px] rounded-[20px]">
+                        </div>
+                        <div class="mt-[25px]">
+                            <p class="text-[24px] text-[#161616] font-bold">{{ project.name }}</p>
+                            <p class="text-[#161616]">{{ project.service.all|join:", " }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="absolute top-0 right-0 h-full w-[50px] bg-gradient-to-l from-white"></div>
+        </div>
+    </section>
+
+    <section class="w-[1146px] m-auto mt-[70px]">
+        <h3 class="days-one-regular font-normal text-[30px] text-[#161616] mb-2.5">ИНСТРУМЕНТЫ</h3>
+        <p class="text-[18px] text-[#161616]">{{ service.tools_description }}</p>
+    </section>
+
+    <section class="mt-[70px] w-[1140px] m-auto">
+        <h4 class="text-center days-one-regular font-normal text-[40px] text-[#161616]">ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h4>
+        <div>
+            {% for service in services %}
+                <a href="{% url 'service_detail' service.id %}" class="flex mt-[30px] items-center p-[30px] justify-between border-[1px] rounded-[15px] border-black-30%">
+                    <p class="text-[24px] font-[600]">{{ service.name }}</p>
+                    <p class="text-[24px] opacity-[30%] font-[600]">{{ service.tools }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+
+{% include 'chunks/form.html' %}
+{% endblock %}

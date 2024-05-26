@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+    <section class="w-[1146px] m-auto mt-[125px]">
+        <form method="POST" class="bg-[#9000FF] p-[50px] rounded-[20px] text-white flex justify-between">
+        {% csrf_token %}
+            <div class=" flex flex-col justify-between w-[50%]">
+                <div>
+                    <p class="text-[18px] mb-[5px]">Профессионалы своего дела</p>
+                    <h3 class="text-[30px] days-one-regular font-normal">ХОТИТЕ ОБСУДИТЬ ПРОЕКТ?</h3>
+                    <h3 class="text-[30px] days-one-regular font-normal">ДАВАЙТЕ ПОГОВОРИМ</h3>
+                </div>
+                <div>
+                    <p class="text-[18px] mb-2.5">EMAIL: {{ email }}</p>
+                    <p class="text-[18px]">TEl: {{ phone }}</p>
+                    <div class="flex gap-[15px]  mt-5">
+                        {% for social in socials %}
+                            <a href="{{ social.link }}">
+                                {{ social.icon|safe }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="w-[40%]">
+                <div class="flex gap-5 mb-5 ">
+                    <div class="flex flex-col w-1/2 ">
+                        <label class=" text-[14px] mb-2.5" for="name">Ваше имя*</label>
+                        <input class="rounded-[10px] text-[14px] py-[14px] px-[15px]" type="text"
+                               placeholder="Введите имя"
+                               id="name" name="name" required style="color:black">
+                    </div>
+                    <div class="flex flex-col w-1/2 ">
+                        <label class="text-[14px] mb-2.5" for="phone-number">Ваш телефон*</label>
+                        <input class="rounded-[10px] text-[14px] py-[14px] px-[15px]" type="text" placeholder="+998"
+                               id="phone-number" name="phone" required style="color:black">
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <label class="mb-2.5" for="comment">Комментарий</label>
+                    <textarea class="rounded-[10px] text-[14px] py-[12px] px-[15px]" name="comment" id="comment"
+                              cols="30"
+                              rows="6" placeholder="Ваше сообщение" style="color:black"></textarea>
+                </div>
+                <button type="submit" class="mt-5 rounded-[100px] py-2.5 px-5 border-[1px] border-[#FFFFFF]">Оставить
+                    заявку
+                </button>
+            </div>
+        </form>
+    </section>

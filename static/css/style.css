@@ -1,0 +1,44 @@
+* {
+    font-family: Petrov Sans, sans-serif;
+}
+
+.days-one-regular {
+    font-family: "Days One", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.lang {
+    position: relative;
+    margin-left: 8px;
+}
+
+.lang:first-child::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px;
+    background-color: #000; /* Цвет полосы */
+}
+
+.lang.active {
+    color: #9000FF;
+}
+
+.transition-custom {
+    transition: filter 300ms ease-in-out, transform 300ms ease-in-out, border 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+.background-gif {
+    @apply absolute top-1/2 left-1/2 w-[500px] h-[500px] object-cover transform -translate-x-1/2 -translate-y-1/2;
+    filter: brightness(200%) saturate(100%) invert(1) sepia(1) hue-rotate(274deg);
+    z-index: -1;
+}
+

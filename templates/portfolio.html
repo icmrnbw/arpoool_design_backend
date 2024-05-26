@@ -1,0 +1,135 @@
+{% extends 'chunks/base.html' %}
+{% load static %}
+{% load tags %}
+{% block content %}
+
+    <section class="w-[1140px] m-auto flex flex-col justify-center mt-[139px] text-center">
+        <img src="{% static 'img/background.gif' %}" alt="Background GIF"
+             class="background-gif absolute top-1/2 left-1/2 w-[500px] h-[500px] object-cover transform -translate-x-1/2 -translate-y-1/2">
+        <h2 class="text-[#161616] font-normal text-[55px] leading-[71.5px] mb-2.5 days-one-regular">НАШ ТВОРЧЕСКИЙ ДУХ
+            ОПРЕДЕЛЯЕТ НАШЕ НАСЛЕДИЕ</h2>
+        <p class="self-center w-[60%] text-[#161616] text-[18px] mb-[30px]">Эксперты в цифровом мире, где креатив и
+            инновации объединяются. Вместе создаем уникальный
+            след вашего бизнеса онлайн, обеспечивая рост и успех.</p>
+    </section>
+
+    <section class="w-[914px] m-auto mt-[281px]">
+        <div class="flex justify-around">
+            <a href="?" class="rounded-[10px] border-[1px] border-[#9000FF] py-2.5 px-[15px] text-center filter-button" {% if not request.GET.service %}style="background-color:#9000FF; color: white{% endif %}">Все</a>
+            {% for service in filterset.form.service.field.queryset %}
+                <a href="?service={{ service.id }}"
+                   class="rounded-[10px] border-[1px] border-[#9000FF] py-2.5 px-[15px] text-center" {% if service.id|stringformat:"s" in request.GET.service %}style="background-color:#9000FF; color: white"{% endif %}>
+                    {{ service.name }}
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+    <section class="w-[1122px] m-auto">
+        {% for project in projects %}
+            {% if project|length == 1 %}
+                {# блок в полную ширину #}
+                <div class="w-[914px] mt-[36px] m-auto mb-[90px]">
+                    <a href="{% url 'portfolio_detail' project.0.id %}" class="flex flex-col-reverse">
+                        <div>
+                            <p class="days-one-regular font-normal text-[40px] text-[#161616]">{{ project.0.name }}
+                            </p>
+                            <p>{{ project.0.service.all|join:", " }}</p>
+                        </div>
+                        <div class="mb-4">
+                            <img src="{{ project.0.preview.url }}" alt="FINSUM" style="transform: rotate(-2.13deg)"
+                                 class="object-cover h-[500px] w-full transform: rounded-[30px]">
+                        </div>
+                    </a>
+                </div>
+            {% else %}
+                {% with forloop.counter|divisibleby:4 as even %}
+                    {#  блок с первым чередованием #}
+                    <div class="flex {% if not even %} flex-row-reverse {% endif %} justify-between">
+                        {% for item in project %}
+                            <div class="mt-[36px] {% if forloop.last %} w-[30%] {% else %} mb-[90px] w-[60%] {% endif %}">
+                                <a href="{% url 'portfolio_detail' item.id %}" class="flex flex-col-reverse">
+                                    <div>
+                                        <p class="days-one-regular font-normal text-[40px] text-[#161616]">{{ item.name }}
+                                        </p>
+                                        <p>{{ item.service.all|join:", " }}</p>
+                                    </div>
+                                    <div class="mb-4">
+                                        <img src="{{ item.preview.url }}" alt="FINSUM"
+                                             class="object-cover h-[500px] w-full transform: rounded-[30px]"
+                                             style="transform: rotate({{ forloop.counter|get_degree }}deg)">
+                                    </div>
+                                </a>
+                            </div>
+                            {#                        <div class="mt-[36px] mb-[90px] w-[60%]">#}
+                            {#                            <div class="flex flex-col-reverse">#}
+                            {#                                <div>#}
+                            {#                                    <p class="days-one-regular font-normal text-[40px] text-[#161616]">FIN<span#}
+                            {#                                            class="days-one-regular font-normal text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
+                            {#                                    </p>#}
+                            {#                                    <p>logo, UI Design, branding</p>#}
+                            {#                                </div>#}
+                            {#                                <div class="mb-4">#}
+                            {#                                    <img src="{% static 'img/project-4.png' %}" alt="FINSUM"#}
+                            {#                                         class="object-cover h-[500px] w-full transform: rounded-[30px] -rotate-[2.13deg]">#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                        </div>#}
+                        {% endfor %}
+                    </div>
+                {% endwith %}
+                {# блок в полную ширину #}
+                {#            <div class="w-[914px] m-auto mb-[90px]">#}
+                {#                <div class="flex flex-col-reverse">#}
+                {#                    <div>#}
+                {#                        <p class="days-one-regular font-normal text-[40px] text-[#161616]">FIN<span#}
+                {#                                class="days-one-regular font-normal text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
+                {#                        </p>#}
+                {#                        <p>logo, UI Design, branding</p>#}
+                {#                    </div>#}
+                {#                    <div class="mb-4">#}
+                {#                        <img src="{% static 'img/project-1.png' %}" alt="FINSUM"#}
+                {#                             class="object-cover h-[500px] w-full transform: rounded-[30px]">#}
+                {#                    </div>#}
+                {#                </div>#}
+                {#            </div>#}
+                {#  блок со вторым чередованием #}
+                {#            <div class="flex flex-row-reverse justify-between">#}
+                {#                <div class="mt-[36px] w-[30%]">#}
+                {#                    <div class="flex flex-col-reverse">#}
+                {#                        <div>#}
+                {#                            <p class="days-one-regular font-normal text-[40px] text-[#161616]">FIN<span#}
+                {#                                    class="days-one-regular font-normal text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
+                {#                            </p>#}
+                {#                            <p>logo, UI Design, branding</p>#}
+                {#                        </div>#}
+                {#                        <div class="mb-4">#}
+                {#                            <img src="{% static 'img/project-5.png' %}" alt="FINSUM"#}
+                {#                                 class="object-cover h-[500px] w-full transform: rounded-[30px]">#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
+                {#                <div class="mt-[36px] mb-[90px] w-[60%]">#}
+                {#                    <div class="flex flex-col-reverse">#}
+                {#                        <div>#}
+                {#                            <p class="days-one-regular font-normal text-[40px] text-[#161616]">FIN<span#}
+                {#                                    class="days-one-regular font-normal text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
+                {#                            </p>#}
+                {#                            <p>logo, UI Design, branding</p>#}
+                {#                        </div>#}
+                {#                        <div class="mb-4">#}
+                {#                            <img src="{% static 'img/project-2.png' %}" alt="FINSUM"#}
+                {#                                 class="object-cover h-[500px] w-full transform: rounded-[30px] -rotate-[2.13deg]">#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {#                </div>#}
+                {#            </div>#}
+            {% endif %}
+        {% endfor %}
+    </section>
+
+{% include 'chunks/form.html' %}
+
+{% endblock %}

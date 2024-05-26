@@ -1,0 +1,137 @@
+{% extends 'chunks/base.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="relative w-[1140px] m-auto flex flex-col justify-center pt-[139px] text-center overflow-hidden">
+        <img src="{% static 'img/background.gif' %}" alt="Background GIF"
+             class="background-gif absolute top-1/2 left-1/2 w-[500px] h-[500px] object-cover transform -translate-x-1/2 -translate-y-1/2">
+        <h2 class="text-[#161616] font-normal text-[55px] leading-[71.5px] mb-2.5 days-one-regular">
+            ПОМОЖЕМ ВАШЕМУ БИЗНЕСУ ВОЗРАСТИ, ДОСТИГАЙТЕ ВЫСОТ ВМЕСТЕ С НАМИ
+        </h2>
+        <p class="self-center w-[60%] text-[#161616] text-[18px] mb-[30px]">
+            Эксперты в цифровом мире, где креатив и инновации объединяются. Вместе создаем уникальный след вашего
+            бизнеса онлайн, обеспечивая рост и успех.
+        </p>
+        <a href="{% url 'contact' %}"
+           class="text-white py-2.5 px-5 rounded-[100px] border-[#9000FF] bg-purple-70% w-fit self-center">
+            Оставить заявку
+        </a>
+    </section>
+
+    <div class="w-[1140px] mx-auto flex items-center justify-between mt-[96px] relative z-10">
+        <a href="{% url 'portfolio' %}" class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px]">Портфолио</a>
+        <img src="{% static 'img/finsum.png' %}" alt="idea" class="h-[86px] w-[153px] rounded-[77px] scroll-image"
+             id="scrollImage">
+        <a href="{{ telegram }}" class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px]">Написать
+            в телеграм</a>
+    </div>
+
+    <section class="mt-[125px] w-[1140px] m-auto">
+        <h4 class="text-center days-one-regular font-normal text-[40px] text-[#161616]">ОСНОВНЫЕ УСЛУГИ</h4>
+        <div>
+            {% for service in services %}
+                <a href="{% url 'service_detail' service.id %}"
+                   class="flex mt-[30px] items-center p-[30px] justify-between border-[1px] rounded-[15px] border-black-30%">
+                    <p class="text-[24px] font-[600]">{{ service.name }}</p>
+                    <p class="text-[24px] opacity-[30%] font-[600]">{{ service.tools }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="w-[1180px] m-auto mt-[125px]">
+        <div class="flex justify-between">
+            <h4 class="days-one-regular font-normal text-[40px] w-1/4">НЕДАВНИЕ РАБОТЫ</h4>
+            <div class="w-[40%]">
+                <p class="text-[18px]">Погружайтесь в наше портфолио и открывайте мир вдохновляющих историй успеха,
+                    которые
+                    мы создаем с нашими
+                    клиентами.</p>
+                <a href="{% url 'portfolio' %}" style="display: inline-block"
+                   class="text-white bg-[#9000FF] py-2.5 px-5 rounded-[100px] mt-5">Все работы</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="w-[1180px] m-auto">
+        {% for project in projects %}
+            <div class="flex items-center {% if forloop.counter|divisibleby:2 %}flex-row-reverse{% endif %} justify-between mt-[70px]"
+                 {% if forloop.counter|divisibleby:2 %}style="text-align: right"{% endif %}>
+                <div>
+                    <p class="days-one-regular font-normal text-[40px] text-[#161616]">{{ project.name }}</p>
+                    <p>{{ project.service.all|join:", " }}</p>
+                    <div class="mt-[25px]">
+                        <a href="{% url 'portfolio_detail' project.id %}"
+                           class="text-[14px] border-[#9000FF] rounded-[100px] py-2.5 px-5 border-[1px]">Смотреть
+                            проект
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <img src="{{ project.preview.url }}" alt="FINSUM"
+                         class="w-[680px] h-[500px] object-cover rounded-[30px] rotate-[2.05deg]">
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <div class="w-[1146px] m-auto mt-[125px]" id="about-us">
+        <div class="flex justify-between">
+            <h4 class="days-one-regular font-normal text-[40px] w-1/3 leading-[50.92px]">УЗНАЙТЕ О НАС БОЛЬШЕ</h4>
+            <div class="w-[50%]">
+                <p class="text-[18px]">Arpoool - мы не просто компания, мы архитекторы цифровых миров. Воплощаем
+                    уникальные
+                    идеи в технологические шедевры, прокладывая путь к новым горизонтам вашего бизнеса. С нами вы не
+                    просто
+                    следуете трендам, вы их создаете, обретая цифровое наследие, которое завораживает и вдохновляет.</p>
+                <a href="{% url 'contact' %}" class="text-white bg-[#9000FF] py-2.5 px-5 rounded-[100px] mt-5"
+                   style="display: inline-block">Связаться с нами</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="w-[1146px] m-auto mt-5">
+        <div class="flex gap-5">
+            <div class="w-1/2">
+                <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
+                    <h1 class="text-[80px] mb-[60px] font-semibold">1000+</h1>
+                    <p class="text-[18px] w-[65%] self-end font-semibold">УСПЕШНЫХ КЛИЕНТОВ КОТОРЫМ МЫ
+                        ВЛОЖИЛИ ВКЛАД В РАЗВИТИЕ БИЗНЕСА</p>
+                </div>
+                <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
+                    <h1 class="text-[80px] mb-[60px] font-semibold">12+</h1>
+                    <p class="text-[18px] w-[65%] self-end font-semibold">УСПЕШНЫХ КЛИЕНТОВ КОТОРЫМ МЫ
+                        ВЛОЖИЛИ ВКЛАД В РАЗВИТИЕ БИЗНЕСА</p>
+                </div>
+            </div>
+            <div class="w-1/2">
+                <div class="flex mt-[82px] flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
+                    <h1 class="text-[80px] mb-[60px] font-semibold">25+</h1>
+                    <p class="text-[18px] w-[65%] self-end font-semibold">УСПЕШНЫХ КЛИЕНТОВ КОТОРЫМ МЫ
+                        ВЛОЖИЛИ ВКЛАД В РАЗВИТИЕ БИЗНЕСА</p>
+                </div>
+                <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
+                    <h1 class="text-[80px] mb-[60px] font-semibold">110+</h1>
+                    <p class="text-[18px] w-[65%] self-end font-semibold">УСПЕШНЫХ КЛИЕНТОВ КОТОРЫМ МЫ
+                        ВЛОЖИЛИ ВКЛАД В РАЗВИТИЕ БИЗНЕСА</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if clients %}
+        <section class="w-[1146px] m-auto mt-[125px]" id="our-clients">
+            <h4 class="text-[40px] days-one-regular font-normal text-[#161616] text-center mb-10">НАШИ КЛИЕНТЫ</h4>
+            <div class="flex gap-[2px] flex-wrap items-center">
+                {% for client in clients %}
+                    <div class="w-[calc(25%-2px)] h-[162px] rounded-[20px] flex justify-center border border-transparent hover:border-gray-300 hover:shadow-lg transition-custom">
+                        <img src="{{ client.picture.url }}" alt="idea"
+                             class="scale-50 object-contain filter grayscale hover:grayscale-0 transition-custom">
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+{% include 'chunks/form.html' %}
+
+{% endblock %}

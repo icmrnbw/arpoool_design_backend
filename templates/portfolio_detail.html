@@ -1,0 +1,58 @@
+{% extends 'chunks/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="w-[1146px] m-auto mt-[40px] flex items-center">
+    <div class="w-[40%] mr-5">
+        <h2 class="days-one-regular font-normal text-[55px] text-[#161616] mb-2.5">{{ project.name }}</h2>
+        <p class="text-[18px] text-[#161616] mb-[30px]">{{ project.description }}</p>
+        <a href="{% url 'contact' %}" class="border-[1px] border-[#9000FF] py-2.5 px-5 text-[14px] text-[#161616] rounded-[100px]">Консультация</a>
+    </div>
+    <div class="w-[60%]">
+        <img src="{{ project.preview.url }}" alt="">
+    </div>
+</section>
+
+<section class="w-[1146px] m-auto mt-[70px] flex items-center justify-between">
+    <div>
+        <p class="text-[#161616] opacity-[50%]">Клиент</p>
+        <p class="text-[#161616]">{{ project.client }}</p>
+    </div>
+    <div>
+        <p class="text-[#161616] opacity-[50%]">Сделанная работа</p>
+        <p class="text-[#161616]">{{ project.service.all|join:", " }}</p>
+    </div>
+    <div>
+        <p class="text-[#161616] opacity-[50%]">Год</p>
+        <p class="text-[#161616]">{{ project.year }}</p>
+    </div>
+</section>
+
+<section class="w-[1146px] m-auto mt-[128px]">
+    <img src="{{ project.content_picture.url }}" alt="Finsum Preview">
+</section>
+
+<section class="w-full m-auto mt-[128px] relative">
+    <h4 class="text-center text-[40px] text-[#161616] days-one-regular font-normal">СЛЕДУЮЩИЙ</h4>
+    <div class="relative mt-10" style="padding-left: calc((100vw - 1146px) / 2);">
+        <div class="flex gap-5 overflow-x-auto scrollbar-hide">
+            {% for project in projects %}
+            <a href="{% url 'portfolio_detail' project.id %}" class="flex-shrink-0">
+                <div>
+                    <img src="{{ project.preview.url }}" alt="" class="h-[328px] rounded-[20px]">
+                </div>
+                <div class="mt-[25px]">
+                    <p class="text-[24px] text-[#161616] font-bold">{{ project.name }}</p>
+                    <p class="text-[#161616]">{{ project.service.all|join:", " }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        <div class="absolute top-0 right-0 h-full w-[50px] bg-gradient-to-l from-white"></div>
+        <div class="absolute top-0 left-0 h-full w-[50px] bg-gradient-to-r from-white"></div>
+    </div>
+</section>
+
+{% include 'chunks/form.html' %}
+
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Inquiry</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .contact-form {
+            background-color: #8a2be2;  /* Background color similar to the image */
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+        }
+        .form-control {
+            margin-bottom: 10px;
+        }
+        .form-control::placeholder {
+            color: #ccc;
+        }
+        .btn-submit {
+            background-color: white;
+            color: #8a2be2;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="contact-form mt-5">
+        <h2>Хотите обсудить проект? Давайте поговорим</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Оставить заявку</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
