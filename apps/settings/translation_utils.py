@@ -17,6 +17,7 @@ def _expand_field(field: dict, field_name: str, translation_mapping: dict) -> di
         copy = deepcopy(field)
         copy['lang_code'] = code
         copy['original_field'] = field_name
+        del copy['translated']
 
         if 'title' in copy:
             copy['title'] += f' ({language})'
