@@ -31,10 +31,18 @@ def portfolio_view(request):
                 rearranged_projects.append((projects[i],))
         i += 1
     services = Service.objects.all()
+    if request.method == 'POST':
+        form = InquiryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = InquiryForm()
     return render(request, 'portfolio.html', {
         'filterset': filterset,
         'projects': rearranged_projects,
-        'services': services
+        'services': services,
+        'form': form,
     })
 
 
@@ -42,7 +50,18 @@ def index_view(request):
     clients = Client.objects.all()
     projects = Project.objects.all().order_by('-created_at')[:5]
     services = Service.objects.all()
-    return render(request, 'index.html', {'projects': projects, 'services': services, 'clients': clients})
+    services_list = list(services)
+    grouped_services = [(services_list[i], services_list[i + 1] if i + 1 < len(services_list) else None)
+                        for i in range(0, len(services_list), 2)]
+    if request.method == 'POST':
+        form = InquiryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = InquiryForm()
+    return render(request, 'index.html', {'projects': projects, 'services': services, 'clients': clients,
+                                          'grouped_services': grouped_services, 'form': form})
 
 
 def contact_view(request):
@@ -73,11 +92,23 @@ def portfolio_detail_view(request, pk):
 def service_detail_view(request, pk):
     service = get_object_or_404(Service, pk=pk)
     services = Service.objects.exclude(pk=pk)
+    services_list = list(services)
+    grouped_services = [(services_list[i], services_list[i + 1] if i + 1 < len(services_list) else None)
+                        for i in range(0, len(services_list), 2)]
     projects = Project.objects.all().order_by('-created_at')
+    if request.method == 'POST':
+        form = InquiryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = InquiryForm()
     context = {
         'service': service,
         'services': services,
+        'grouped_services': grouped_services,
         'projects': projects,
+        'form': form,
     }
     return render(request, 'service_detail.html', context)
 

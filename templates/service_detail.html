@@ -1,63 +1,85 @@
 {% extends 'chunks/base.html' %}
 {% load static %}
+{% load tags %}
 {% block content %}
-    <section class="w-[1146px] m-auto mt-[40px] flex items-center">
-        <div class="w-[50%] mr-5">
-            <h2 class="days-one-regular font-normal text-[55px] text-[#161616] mb-2.5">{{ service.name }}</h2>
-            <p class="text-[18px] text-[#161616] mb-[30px]">Эксперты в цифровом мире, где креатив и инновации
-                объединяются.
+
+    <section
+            class="w-[1146px] max-1180px:px-5 max-1180px:w-auto m-auto mt-[40px] flex max-1000px:flex-col items-center">
+        <div class="w-[50%] max-1000px:w-full mr-5 max-1000px:mb-10 max-[500px]:mb-5">
+            <h2 class="days-one-regular font-normal max-1000px:text-[32px] max-[320px]:text-[18px] text-[55px] text-[#161616] mb-2.5">{{ service.name }}</h2>
+            <p class="text-[18px] max-[320px]:text-[12px] max-[500px]:text-[15px] text-[#161616] max-[500px]:mb-5 mb-[30px]">
+                Эксперты в цифровом мире, где креатив и инновации объединяются.
                 Вместе создаем уникальный след вашего бизнеса
                 онлайн, обеспечивая рост и успех.</p>
-            <a href="{% url 'contact' %}" class="border-[1px] border-[#9000FF] py-2.5 px-5 text-[14px] text-[#161616] rounded-[100px]">
+            <a href="{% url 'contact' %}"
+               class="border-[1px] border-[#9000FF] py-2.5 px-5 text-[14px] text-[#161616] rounded-[100px]">
                 Консультация
             </a>
         </div>
-        <div class="w-[50%]">
+        <div class="w-[50%] max-1000px:w-full">
             <img src="{{ service.picture.url }}" alt="">
         </div>
     </section>
 
-    <section class="w-[1146px] m-auto mt-[130px]">
-        <h3 class="days-one-regular font-normal text-[30px] text-[#161616] mb-2.5">{{ service.name }}</h3>
-        <p class="text-[18px] text-[#161616]">{{ service.description }}</p>
+    <section
+            class="w-[1146px] max-1180px:px-5 max-1180px:w-auto m-auto max-1000px:mt-[90px] max-[500px]:mt-[50px] mt-[130px]">
+        <h3 class="days-one-regular font-normal text-[30px] max-1000px:text-[24px] max-[320px]:text-[18px] text-[#161616] mb-2.5">{{ service.name }}</h3>
+        <p class="text-[18px] max-1000px:text-[15px] max-[320px]:text-[12px] text-[#161616]">Lorem ipsum dolor sit amet
+            consectetur. Ut a pulvinar lorem sit metus eget. Lobortis tempus eget sit sit in sit.
+            Diam facilisi urna eget gravida facilisis phasellus risus sodales neque. Nulla feugiat a facilisis feugiat a
+            orci. Fermentum risus quam sed amet tincidunt euismod vulputate lobortis et. Neque in aliquet id turpis ut
+            massa
+            eget. At est est lorem vitae. Sagittis vestibulum viverra quis nisi diam aenean id ultrices. Nulla neque
+            rutrum
+            lacinia elementum.</p>
+        <br>
+        <p class="text-[18px] max-1000px:text-[15px] max-[320px]:text-[12px] text-[#161616]">{{ service.description }}</p>
     </section>
 
-    <section class="w-full m-auto mt-[70px] relative" style="padding-left: calc((100vw - 1146px) / 2);">
-        <h4 class="text-[40px] text-[#161616] days-one-regular font-normal">НАШИ РАБОТЫ</h4>
-        <div class="relative mt-10">
+    <section class="w-full m-auto mt-[128px] max-[500px]:mt-[50px] relative">
+        <h4 class="text-center text-[40px] max-1000px:text-[29px] max-[500px]:text-[18px] text-[#161616] days-one-regular font-normal">
+            СЛЕДУЮЩИЙ</h4>
+        <div class="relative mt-10 max-1180px:!pl-5" style="padding-left: calc((100vw - 1146px) / 2);">
             <div class="flex gap-5 overflow-x-auto scrollbar-hide">
                 {% for project in projects %}
-                    <div class="flex-shrink-0">
+                    <a href="{% url 'portfolio_detail' project.id %}" class="flex-shrink-0">
                         <div>
-                            <img src="{{ project.preview.url }}" alt="" class="h-[328px] rounded-[20px]">
+                            <img src="{{ project.preview.url }}" alt=""
+                                 class="h-[328px] max-1000px:h-[218px] max-[500px]:h-[110px] rounded-[20px]">
                         </div>
                         <div class="mt-[25px]">
-                            <p class="text-[24px] text-[#161616] font-bold">{{ project.name }}</p>
-                            <p class="text-[#161616]">{{ project.service.all|join:", " }}</p>
+                            <p class="text-[24px] max-[1000px]:text-[21px] max-[320px]:text-[18px] text-[#161616] font-bold">
+                                {{ project.name }}</p>
+                            <p class="text-[#161616] max-1000px:text-[14px] max-[320px]:text-[12px]">{{ project.service.all|join:", " }}</p>
                         </div>
-                    </div>
+                    </a>
                 {% endfor %}
             </div>
             <div class="absolute top-0 right-0 h-full w-[50px] bg-gradient-to-l from-white"></div>
         </div>
     </section>
 
-    <section class="w-[1146px] m-auto mt-[70px]">
-        <h3 class="days-one-regular font-normal text-[30px] text-[#161616] mb-2.5">ИНСТРУМЕНТЫ</h3>
-        <p class="text-[18px] text-[#161616]">{{ service.tools_description }}</p>
+    <section class="w-[1146px] max-1180px:px-5 max-1180px:w-auto m-auto mt-[70px]">
+        <h3 class="days-one-regular font-normal text-[30px] max-1000px:text-[24px] max-[320px]:text-[18px] text-[#161616] mb-2.5">
+            ИНСТРУМЕНТЫ</h3>
+        <p class="text-[18px] max-1000px:text-[15px] max-[320px]:text-[12px] text-[#161616]">{{ service.tools_description }}</p>
     </section>
 
-    <section class="mt-[70px] w-[1140px] m-auto">
-        <h4 class="text-center days-one-regular font-normal text-[40px] text-[#161616]">ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h4>
+    <section class="mt-[70px] max-[500px]:mt-[50px] max-1180px:px-5 max-1180px:w-auto w-[1140px] m-auto">
+        <h4 class="text-center days-one-regular font-normal text-[40px] max-1000px:text-[30px] max-[500px]:text-[18px] text-[#161616]">
+            ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h4>
         <div>
-            {% for service in services %}
-                <a href="{% url 'service_detail' service.id %}" class="flex mt-[30px] items-center p-[30px] justify-between border-[1px] rounded-[15px] border-black-30%">
-                    <p class="text-[24px] font-[600]">{{ service.name }}</p>
-                    <p class="text-[24px] opacity-[30%] font-[600]">{{ service.tools }}</p>
-                </a>
+            {% for pair in grouped_services %}
+                <div class="hover-container max-[800px]:p-2.5 max-[800px]:text-center max-[800px]:flex-col flex mt-[30px] items-center p-[30px] justify-between border-[1px] rounded-[15px] border-black-30%">
+                    <p class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[14px] font-[600] {% if pair.1 %}hover-text{% endif %}"
+                       data-hover-text="{{ pair.1.name }}">{{ pair.0.name }}</p>
+                    <p class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[12px] !opacity-[30%] font-[600] {% if pair.1 %}hover-text{% endif %}"
+                       data-hover-text="{{ pair.1.tools }}">{{ pair.0.tools }}</p>
+                </div>
             {% endfor %}
         </div>
     </section>
 
-{% include 'chunks/form.html' %}
+    {% include 'chunks/form.html' %}
+
 {% endblock %}

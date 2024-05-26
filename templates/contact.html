@@ -1,10 +1,11 @@
 {% extends 'chunks/base.html' %}
 {% load static %}
 {% block content %}
-<section class="w-[1146px] m-auto mt-10 mb-[130px]">
-    <h2 class="text-[55px] days-one-regular text-[#161616] font-normal">КОНТАКТЫ</h2>
-    <div class="flex justify-between mt-10">
-        <div>
+
+<section class="w-[1146px] max-1180px:px-5 max-1180px:w-auto m-auto mt-10 max-1000px:mb-[90px] max-[500px]:mb-[50px] mb-[130px]">
+    <h2 class="text-[55px] max-1000px:text-[38px] max-[500px]:text-[22px] max-1000px:leading-[42px] max-[500px]:leading-[28px] days-one-regular text-[#161616] font-normal">КОНТАКТЫ</h2>
+    <div class="flex justify-between mt-10 max-[900px]:flex-col">
+        <div class="max-[900px]:mb-[50px]">
             <div class="flex mb-[30px]">
                 <div class="mr-2">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -14,8 +15,8 @@
                     </svg>
                 </div>
                 <div>
-                    <p class="text-[18px] font-semibold mb-2">Телефон:</p>
-                    <p class="text-[18px]">{{ phone }}</p>
+                    <p class="text-[18px] max-[500px]:text-[16px] font-semibold mb-2">Телефон:</p>
+                    <p class="text-[18px] max-[500px]:text-[16px]">{{ settings.contacts.phone }}</p>
                 </div>
             </div>
             <div class="flex mb-[30px]">
@@ -26,8 +27,8 @@
                     </svg>
                 </div>
                 <div>
-                    <p class="text-[18px] font-semibold mb-2">Электронная почта:</p>
-                    <p class="text-[18px]">{{ email }}</p>
+                    <p class="text-[18px] max-[500px]:text-[16px] font-semibold mb-2">Электронная почта:</p>
+                    <p class="text-[18px] max-[500px]:text-[16px]">{{ settings.contacts.email }}</p>
                 </div>
             </div>
             <div class="flex mb-[30px]">
@@ -39,8 +40,8 @@
                     </svg>
                 </div>
                 <div>
-                    <p class="text-[18px] font-semibold mb-2">Адрес:</p>
-                    <p class="text-[18px]">Ташкент, Яшнабадский район, Чулпон 1</p>
+                    <p class="text-[18px] max-[500px]:text-[16px] font-semibold mb-2">Адрес:</p>
+                    <p class="text-[18px] max-[500px]:text-[16px]">{{ settings.contacts.address }}</p>
                 </div>
             </div>
             <div class="flex ">
@@ -52,19 +53,19 @@
                     </svg>
                 </div>
                 <div>
-                    <p class="text-[18px] font-semibold mb-2">Время работы:</p>
-                    <p class="text-[18px]">Понедельник-Суббота, 9:00 - 18:00</p>
+                    <p class="text-[18px] max-[500px]:text-[16px] font-semibold mb-2">Время работы:</p>
+                    <p class="text-[18px] max-[500px]:text-[16px]">{{ settings.contacts.working_hours }}</p>
                 </div>
             </div>
             <div class="flex gap-4 mt-[30px] ml-[38px]">
-                <a href="#">
+                <a href="{{ settings.contacts.telegram }}">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                               d="M30 15C30 23.2843 23.2843 30 15 30C6.7157 30 0 23.2843 0 15C0 6.7157 6.7157 0 15 0C23.2843 0 30 6.7157 30 15ZM21.3262 9.09912L6.86356 14.6753C5.87212 15.0635 5.88974 15.6116 6.69365 15.8673L10.3962 17.0221L18.9837 11.6138C19.3827 11.3489 19.7524 11.499 19.4501 11.7651L12.5002 18.0438L12.2343 21.8604C12.6221 21.8604 12.7909 21.6913 12.9907 21.4917L14.7995 19.7491L18.5495 22.5128C19.2332 22.9004 19.7225 22.7002 19.9048 21.8781L22.3675 10.2771C22.5837 9.2627 21.9978 8.8562 21.3262 9.09912Z"
                               fill="#161616"/>
                     </svg>
                 </a>
-                <a href="#">
+                <a href="{{ settings.contacts.instagram }}">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.8711 15C17.8711 16.5855 16.5855 17.8711 15 17.8711C13.4145 17.8711 12.1289 16.5855 12.1289 15C12.1289 13.4145 13.4145 12.1289 15 12.1289C16.5855 12.1289 17.8711 13.4145 17.8711 15Z"
                               fill="#161616"/>
@@ -74,39 +75,33 @@
                               fill="#161616"/>
                     </svg>
                 </a>
-                <a href="#">
+                <a href="{{ settings.contacts.facebook }}">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                               d="M30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15ZM16.0936 15.5856H18.7701L19.123 12.1445H16.0936V10.1177C16.0936 9.35836 16.5963 9.17921 16.9546 9.17921H19.1337V5.83429L16.131 5.82092C12.7968 5.82092 12.0401 8.31825 12.0401 9.91183V12.1418H10.1123V15.5856H12.0401V25.3904H16.0936V15.5856Z"
                               fill="#161616"/>
                     </svg>
                 </a>
-                <a href="#">
-                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.00602007 30L2.03402 22.548C0.697727 20.2573 -0.00433595 17.652 2.01484e-05 15C2.01484e-05 6.7155 6.71552 0 15 0C23.2845 0 30 6.7155 30 15C30 23.2845 23.2845 30 15 30C12.3492 30.0043 9.745 29.3027 7.45502 27.9675L0.00602007 30ZM9.58651 7.962C9.39281 7.97402 9.20353 8.02504 9.03001 8.11199C8.8673 8.20414 8.71876 8.31933 8.58901 8.45399C8.40901 8.6235 8.30702 8.77049 8.19752 8.91299C7.64313 9.63449 7.34493 10.5201 7.35002 11.43C7.35302 12.165 7.54502 12.8805 7.84502 13.5495C8.45852 14.9025 9.46801 16.335 10.8015 17.6625C11.1225 17.982 11.436 18.303 11.7735 18.6015C13.4286 20.0587 15.4009 21.1095 17.5335 21.6705L18.387 21.801C18.6645 21.816 18.942 21.795 19.221 21.7815C19.6579 21.7589 20.0844 21.6406 20.4705 21.435C20.6669 21.3338 20.8586 21.2237 21.045 21.105C21.045 21.105 21.1095 21.063 21.2325 20.97C21.435 20.82 21.5595 20.7135 21.7275 20.538C21.852 20.409 21.96 20.2575 22.0425 20.085C22.1595 19.8405 22.2765 19.374 22.3245 18.9855C22.3605 18.6885 22.35 18.5265 22.3455 18.426C22.3395 18.2655 22.206 18.099 22.0605 18.0285L21.1875 17.637C21.1875 17.637 19.8825 17.0685 19.086 16.7055C19.002 16.6689 18.912 16.648 18.8205 16.644C18.7179 16.6334 18.6142 16.645 18.5164 16.6779C18.4186 16.7107 18.329 16.7641 18.2535 16.8345V16.8315C18.246 16.8315 18.1455 16.917 17.061 18.231C16.9988 18.3146 16.913 18.3778 16.8147 18.4126C16.7164 18.4473 16.61 18.452 16.509 18.426C16.4113 18.3999 16.3155 18.3668 16.2225 18.327C16.0365 18.249 15.972 18.219 15.8445 18.1635L15.837 18.1605C14.9789 17.7858 14.1843 17.2798 13.482 16.6605C13.293 16.4955 13.1175 16.3155 12.9375 16.1415C12.3474 15.5763 11.8331 14.937 11.4075 14.2395L11.319 14.097C11.2554 14.0012 11.2041 13.8979 11.166 13.7895C11.109 13.569 11.2575 13.392 11.2575 13.392C11.2575 13.392 11.622 12.993 11.7915 12.777C11.9326 12.5975 12.0643 12.4107 12.186 12.2175C12.363 11.9325 12.4185 11.64 12.3255 11.4135C11.9055 10.3875 11.4705 9.36599 11.0235 8.35199C10.935 8.15099 10.6725 8.00699 10.434 7.97849C10.353 7.96949 10.272 7.96049 10.191 7.95449C9.98957 7.94449 9.78772 7.94799 9.58651 7.962Z"
-                              fill="#161616"/>
-                    </svg>
-                </a>
             </div>
         </div>
-        <div class="w-1/2">
+        <div class="w-1/2 max-[900px]:w-full">
             <p class="text-[18px] text-[#161616] mb-[5px]">Остались вопросы?</p>
-            <h3 class="text-[30px] text-[#161616] days-one-regular font-normal">ЗАПОЛНИТЕ ФОРМУ</h3>
-            <form class="mt-5" action="" method="POST">
+            <h3 class="text-[30px] max-[500px]:text-[18px] text-[#161616] days-one-regular font-normal">ЗАПОЛНИТЕ ФОРМУ</h3>
+            <form method="POST" action="" class="mt-5">
                 {% csrf_token %}
-                <div class="flex gap-5 mb-5 ">
-                    <div class="flex flex-col w-1/2 ">
+                <div class="flex gap-5 mb-5 max-[500px]:flex-col">
+                    <div class="flex flex-col w-1/2 max-[500px]:w-full">
                         <label class=" text-[14px] mb-2.5" for="name">Ваше имя*</label>
                         <input class="rounded-[10px] border-[1px] border-contact text-[14px] py-[14px] px-[15px]"
                                type="text"
-                               placeholder="Введите имя" name="name"
-                               id="name" required>
+                               placeholder="Введите имя"
+                               name="name" id="name" required>
                     </div>
-                    <div class="flex flex-col w-1/2 ">
+                    <div class="flex flex-col w-1/2 max-[500px]:w-full">
                         <label class="text-[14px] mb-2.5" for="phone-number">Ваш телефон*</label>
                         <input class="rounded-[10px] border-[1px] border-contact text-[14px] py-[14px] px-[15px]"
-                               type="text" placeholder="+998" name="phone"
-                               id="phone-number" required>
+                               type="text" placeholder="+998"
+                               name="phone" id="phone-number" required>
                     </div>
                 </div>
                 <div class="flex flex-col">
@@ -128,6 +123,75 @@
 <script type="text/javascript" charset="utf-8" async
         src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Adaa798529d97e66f9139b6e0fd207e55d6851288dfbb7635fff1976bdeba24a7&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
 
-{% include 'chunks/form.html' %}
+<section class="w-[1146px] max-1000px:!block max-1180px:w-auto m-auto hidden ">
+    <form action="" method="POST" class="bg-[#9000FF] max-1180px:px-5 p-[50px] max-1000px:rounded-none rounded-[20px] text-white flex justify-between max-900px:flex-col">
+        {% csrf_token %}
+        <div class=" flex flex-col justify-between w-[50%] max-900px:w-full max-900px:mb-[30px]">
+            <div class="max-900px:mb-5">
+                <p class="text-[18px] max-[320px]:text-[12px] mb-[5px]">Профессионалы своего дела</p>
+                <h3 class="text-[30px] max-1000px:text-[23px] max-[320px]:text-[16px] days-one-regular font-normal ">
+                    ХОТИТЕ ОБСУДИТЬ ПРОЕКТ?</h3>
+                <h3 class="text-[30px] max-1000px:text-[23px] max-[320px]:text-[16px] days-one-regular font-normal">
+                    ДАВАЙТЕ ПОГОВОРИМ</h3>
+            </div>
+            <div>
+                <p class="text-[18px] max-[320px]:text-[14px] max-[500px]:text-[16px] mb-2.5">EMAIL:
+                    INFO@ARPOOOL.COM</p>
+                <p class="text-[18px] max-[320px]:text-[14px] max-[500px]:text-[16px]">TEl: +998 99 355 56 57</p>
+                <div class="flex gap-[15px]  mt-5">
+                    <a href="#">
+                        <svg class="" width="34" height="34" viewBox="0 0 33 35" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M33 17.5015C33 26.8903 25.6127 34.5015 16.5 34.5015C7.38727 34.5015 0 26.8903 0 17.5015C0 8.11259 7.38727 0.501465 16.5 0.501465C25.6127 0.501465 33 8.11259 33 17.5015ZM23.4588 10.8138L7.54991 17.1335C6.45933 17.5734 6.47871 18.1946 7.36301 18.4844L11.4358 19.7932L20.8821 13.6637C21.321 13.3635 21.7277 13.5337 21.3951 13.8353L13.7503 20.9511L13.4577 25.2765C13.8844 25.2765 14.07 25.0849 14.2898 24.8587L16.2794 22.8838L20.4044 26.016C21.1566 26.4552 21.6948 26.2284 21.8953 25.2966L24.6042 12.1488C24.8421 10.9992 24.1975 10.5385 23.4588 10.8138Z"
+                                  fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg class="" width="34" height="34" viewBox="0 0 34 35" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.2539 17.5015C20.2539 19.2984 18.797 20.7554 17 20.7554C15.203 20.7554 13.7461 19.2984 13.7461 17.5015C13.7461 15.7045 15.203 14.2476 17 14.2476C18.797 14.2476 20.2539 15.7045 20.2539 17.5015Z"
+                                  fill="white"/>
+                            <path d="M24.6096 11.7441C24.4529 11.3204 24.2038 10.9366 23.8791 10.6218C23.5644 10.2977 23.1805 10.0481 22.7569 9.89134C22.4129 9.75786 21.8962 9.59849 20.9446 9.55532C19.9153 9.50817 19.6065 9.49821 17.0001 9.49821C14.3936 9.49821 14.0848 9.50817 13.0555 9.55532C12.1039 9.59915 11.5866 9.75786 11.2433 9.89134C10.819 10.0481 10.4358 10.2971 10.121 10.6218C9.79699 10.9366 9.5473 11.3204 9.39058 11.7441C9.2571 12.0881 9.09773 12.6047 9.05456 13.557C9.00741 14.5863 8.99745 14.895 8.99745 17.5015C8.99745 20.1079 9.00741 20.4167 9.05456 21.446C9.09773 22.3976 9.2571 22.9142 9.39058 23.2582C9.5473 23.6826 9.79632 24.0657 10.121 24.3805C10.4358 24.7045 10.8196 24.9542 11.2433 25.111C11.5873 25.2451 12.1039 25.4038 13.0562 25.447C14.0855 25.4941 14.3936 25.5041 17.0007 25.5041C19.6079 25.5041 19.9167 25.4941 20.9453 25.447C21.8969 25.4038 22.4142 25.2444 22.7582 25.111C23.6095 24.7822 24.2822 24.1096 24.6109 23.2582C24.7444 22.9142 24.9038 22.3976 24.9469 21.446C24.9941 20.4167 25.004 20.1079 25.004 17.5015C25.004 14.895 24.9941 14.5863 24.9469 13.557C24.9024 12.6054 24.7437 12.0881 24.6096 11.7441ZM17.0001 22.5138C14.2316 22.5138 11.9871 20.27 11.9871 17.5015C11.9871 14.733 14.2316 12.4891 17.0001 12.4891C19.7686 12.4891 22.0124 14.733 22.0124 17.5015C22.0124 20.27 19.7686 22.5138 17.0001 22.5138ZM22.211 13.462C21.5642 13.462 21.0396 12.9374 21.0396 12.2906C21.0396 11.6438 21.5642 11.1192 22.211 11.1192C22.8578 11.1192 23.3824 11.6438 23.3824 12.2906C23.3824 12.9374 22.8578 13.462 22.211 13.462Z"
+                                  fill="white"/>
+                            <path d="M17 0.501465C7.61281 0.501465 0 8.11428 0 17.5015C0 26.8887 7.61281 34.5015 17 34.5015C26.3872 34.5015 34 26.8887 34 17.5015C34 8.11428 26.3872 0.501465 17 0.501465ZM26.7026 21.5263C26.6555 22.5656 26.4901 23.2748 26.2491 23.8957C25.7417 25.2072 24.7051 26.2438 23.3943 26.7505C22.7734 26.9916 22.0635 27.1569 21.0249 27.2041C19.9836 27.2519 19.6516 27.2632 17 27.2632C14.3484 27.2632 14.0164 27.2519 12.9751 27.2041C11.9365 27.1569 11.2266 26.9916 10.6057 26.7505C9.9543 26.5055 9.36395 26.121 8.87652 25.6243C8.37981 25.1369 7.99598 24.5465 7.75094 23.8951C7.50988 23.2742 7.34453 22.5643 7.29738 21.5257C7.24957 20.4851 7.23828 20.1524 7.23828 17.5015C7.23828 14.8505 7.24957 14.5178 7.29738 13.4766C7.34453 12.4373 7.50988 11.7281 7.75094 11.1072C7.99598 10.4558 8.38047 9.86541 8.87719 9.37799C9.36461 8.88127 9.95496 8.49678 10.6064 8.25174C11.2273 8.01068 11.9372 7.84533 12.9758 7.79818C14.017 7.75103 14.3491 7.73908 17.0007 7.73908C19.6523 7.73908 19.9843 7.75037 21.0255 7.79818C22.0648 7.84533 22.774 8.01068 23.3949 8.25107C24.0464 8.49611 24.6367 8.88061 25.1241 9.37733C25.6209 9.86475 26.0054 10.4551 26.2497 11.1065C26.4914 11.7274 26.6561 12.4373 26.7039 13.4759C26.7511 14.5172 26.7624 14.8492 26.7624 17.5008C26.7624 20.1524 26.7504 20.4851 26.7026 21.5263Z"
+                                  fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg class="" width="34" height="34" viewBox="0 0 33 35" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M33 17.5015C33 26.8903 25.6127 34.5015 16.5 34.5015C7.3873 34.5015 0 26.8903 0 17.5015C0 8.11262 7.3873 0.501465 16.5 0.501465C25.6127 0.501465 33 8.11262 33 17.5015ZM17.7029 18.1652H20.6471L21.0353 14.2652H17.7029V11.9682C17.7029 11.1076 18.2559 10.9046 18.65 10.9046H21.0471V7.11366L17.7441 7.09851C14.0765 7.09851 13.2441 9.92881 13.2441 11.7349V14.2621H11.1235V18.1652H13.2441V29.2773H17.7029V18.1652Z"
+                                  fill="white"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="w-[40%] max-1000px:w-1/2 max-900px:w-full">
+            <div class="flex gap-5 mb-5 max-[650px]:flex-col">
+                <div class="flex flex-col w-1/2 max-[650px]:w-full">
+                    <label class="text-[14px] mb-2.5" for="name">Ваше имя*</label>
+                    <input class="rounded-[10px] text-[14px] py-[14px] px-[15px]" type="text" placeholder="Введите имя"
+                           name="name" id="name" required>
+                </div>
+                <div class="flex flex-col w-1/2 max-[650px]:w-full">
+                    <label class="text-[14px] mb-2.5" for="phone-number">Ваш телефон*</label>
+                    <input class="rounded-[10px] text-[14px] py-[14px] px-[15px]" type="text" placeholder="+998"
+                           name="phone" id="phone-number" required>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <label class="mb-2.5" for="comment">Комментарий</label>
+                <textarea class="rounded-[10px] text-[14px] py-[12px] px-[15px]" name="comment" id="comment" cols="30"
+                          rows="6" placeholder="Ваше сообщение"></textarea>
+            </div>
+            <button type="submit" class="mt-5 rounded-[100px] py-2.5 px-5 border-[1px] border-[#FFFFFF]">Оставить
+                заявку
+            </button>
+        </div>
+    </form>
+</section>
 
 {% endblock %}
