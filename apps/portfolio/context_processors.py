@@ -1,4 +1,4 @@
-from apps.portfolio.models import Service, SiteSettings
+from apps.portfolio.models import Service
 
 
 def services_processor(request):
@@ -7,13 +7,13 @@ def services_processor(request):
     return context
 
 
-def socials_processor(request):
-    settings = SiteSettings.objects.first()
-    if not settings:
-        return {}
-    socials = settings.socials
-    phone = settings.phone
-    email = settings.email
-    telegram = settings.telegram
-    print(phone)
-    return {'socials': socials, 'phone': phone, 'email': email, 'telegram': telegram}
+# def socials_processor(request):
+#     settings = SiteSettings.objects.first()
+#     if not settings:
+#         return {}
+#     socials = settings.socials
+#     phone = settings.phone
+#     email = settings.email
+#     telegram = settings.telegram
+#     print(phone)
+#     return {'socials': socials, 'phone': phone, 'email': email, 'telegram': telegram}

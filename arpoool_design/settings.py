@@ -73,7 +73,6 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "apps.portfolio.context_processors.services_processor",
-                "apps.portfolio.context_processors.socials_processor",
                 "apps.settings.context_processors.settings_processor",
                 "django.contrib.messages.context_processors.messages",
             ],
