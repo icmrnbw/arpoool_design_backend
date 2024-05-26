@@ -30,7 +30,7 @@ msgstr ""
 
 #: .\templates\portfolio.html:59
 msgid "RUS"
-msgstr "ORiS"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
