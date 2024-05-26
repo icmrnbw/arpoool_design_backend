@@ -5,7 +5,7 @@
             class="relative pb-[30px] w-[1140px] max-[500px]:pt-10 max-1180px:px-5 max-1180px:w-auto m-auto flex flex-col justify-center pt-[139px] text-center overflow-hidden">
         <img src="{% static 'img/bg.gif' %}" alt="Background GIF"
              class="background-gif max-[500px]:h-[300px] max-[500px]:w-[300px] absolute top-1/2 left-1/2 w-[500px] h-[500px] object-cover transform -translate-x-1/2 -translate-y-1/2">
-        <h2 class="text-[#161616] font-normal text-[55px] max-1000px:text-[38px] max-[500px]:text-[22px] max-1000px:leading-[42px] max-[500px]:leading-[28px] leading-[71.5px] mb-2.5 days-one-regular">
+        <h2 style="text-transform: uppercase;" class="text-[#161616] font-normal text-[55px] max-1000px:text-[38px] max-[500px]:text-[22px] max-1000px:leading-[42px] max-[500px]:leading-[28px] leading-[71.5px] mb-2.5 days-one-regular">
             {{ settings.index.main_block.header }}
         </h2>
         <p class="self-center w-[60%] max-[500px]:w-full text-[#161616] text-[18px] max-1000px:text-[15px] max-[500px]:text-[12px] mb-[30px]">
@@ -116,19 +116,19 @@
     <section class="w-[1146px] max-1180px:px-5 max-1180px:w-auto m-auto mt-5">
         <div class="flex max-1000px:flex-col gap-5 max-1000px:gap-0">
             {% for item in settings.index.know_more.grouped_cards %}
-                {% if forloop.counter|divisibleby:"2" %}
+                {% if forloop.counter0|divisibleby:"2" %}
                 <div class="w-1/2 max-1000px:w-full">
                     <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
                         <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
                             {% if item.0.number %}{{ item.0.number }}{% if item.0.plus_sign %}+{% endif %}{% else %}
                                 0{% endif %}</h1>
-                        <p class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
+                        <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
                             {{ item.0.text }}</p>
                     </div>
                     <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
                         <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">{% if item.1.number %}{{ item.1.number }}{% if item.1.plus_sign %}+{% endif %}{% else %}
                                 0{% endif %}</h1>
-                        <p class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
+                        <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
                             {{ item.1.text }}</p>
                     </div>
                 </div>
@@ -138,13 +138,13 @@
                         <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
                             {% if item.0.number %}{{ item.0.number }}{% if item.0.plus_sign %}+{% endif %}{% else %}
                                 0{% endif %}</h1>
-                        <p class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
+                        <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
                             {{ item.0.text }}</p>
                     </div>
                     <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
                         <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">{% if item.1.number %}{{ item.1.number }}{% if item.1.plus_sign %}+{% endif %}{% else %}
                                 0{% endif %}</h1>
-                        <p class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
+                        <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
                             {{ item.1.text }}</p>
                     </div>
                 </div>

@@ -63,6 +63,7 @@ def expand_schema_translation(schema: dict, name: str = None, translation_mappin
 
 def get_translation_mapping(schema):
     mapping = {}
+    schema = deepcopy(schema)
     expand_schema_translation(schema, translation_mapping=mapping)
     return mapping
 

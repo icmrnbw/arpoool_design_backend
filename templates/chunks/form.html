@@ -10,10 +10,12 @@
                     ДАВАЙТЕ ПОГОВОРИМ</h3>
             </div>
             <div>
-                <p class="text-[18px] max-[320px]:text-[14px] max-[500px]:text-[16px] mb-2.5">{{ settings.contacts.email }}</p>
-                <p class="text-[18px] max-[320px]:text-[14px] max-[500px]:text-[16px]">TEl: {{ settings.contacts.phone }}</p>
+                <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[14px] max-[500px]:text-[16px] mb-2.5">Email:
+                    <a href="mailto:{{ settings.contacts.email }}" target="_blank">{{ settings.contacts.email }}</a></p>
+                <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[14px] max-[500px]:text-[16px]">TEl:
+                    <a href="tel:{{ settings.contacts.phone }}" target="_blank">{{ settings.contacts.phone }}</a></p>
                 <div class="flex gap-[15px]  mt-5">
-                    <a href="{{ settings.contacts.telegram }}">
+                    <a href="{{ settings.contacts.telegram }}" target="_blank">
                         <svg class="" width="34" height="34" viewBox="0 0 33 35" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -21,7 +23,7 @@
                                   fill="white"/>
                         </svg>
                     </a>
-                    <a href="{{ settings.contacts.instagram }}">
+                    <a href="{{ settings.contacts.instagram }}" target="_blank">
                         <svg class="" width="34" height="34" viewBox="0 0 34 35" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path d="M20.2539 17.5015C20.2539 19.2984 18.797 20.7554 17 20.7554C15.203 20.7554 13.7461 19.2984 13.7461 17.5015C13.7461 15.7045 15.203 14.2476 17 14.2476C18.797 14.2476 20.2539 15.7045 20.2539 17.5015Z"
@@ -32,7 +34,7 @@
                                   fill="white"/>
                         </svg>
                     </a>
-                    <a href="{{ settings.contacts.facebook }}">
+                    <a href="{{ settings.contacts.facebook }}" target="_blank">
                         <svg class="" width="34" height="34" viewBox="0 0 33 35" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
