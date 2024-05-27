@@ -39,9 +39,9 @@
         <div>
             {% for pair in grouped_services %}
                 <div class="hover-container max-[800px]:p-2.5 max-[800px]:text-center max-[800px]:flex-col flex mt-[30px] items-center p-[30px] justify-between border-[1px] rounded-[15px] border-black-30%">
-                    <p class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[14px] font-[600] {% if pair.1 %}hover-text{% endif %}"
+                    <p style="text-transform: uppercase" class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[14px] font-[600] {% if pair.1 %}hover-text{% endif %}"
                        data-hover-text="{{ pair.1.name }}">{{ pair.0.name }}</p>
-                    <p class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[12px] !opacity-[30%] font-[600] {% if pair.1 %}hover-text{% endif %}"
+                    <p style="text-transform: uppercase" class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[12px] !opacity-[30%] font-[600] {% if pair.1 %}hover-text{% endif %}"
                        data-hover-text="{{ pair.1.tools }}">{{ pair.0.tools }}</p>
                 </div>
             {% endfor %}
