@@ -5,103 +5,12 @@
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
     <link rel="stylesheet" href="{% static 'css/hamburgers.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
-    <style>
-        .transition-custom {
-            transition: filter 300ms ease-in-out, transform 300ms ease-in-out, border 300ms ease-in-out, box-shadow 300ms ease-in-out;
-        }
-
-        .background-gif {
-            filter: brightness(250%) saturate(150%) invert(1) sepia(1) hue-rotate(250deg);
-            z-index: -1;
-        }
-
-        .scroll-image {
-            transition: all 0.5s ease-in-out;
-        }
-
-        .scroll-image.expanded {
-            height: 680px;
-            width: 100%;
-            transform: translateY(100px);
-            margin-bottom: 125px;
-        }
-
-        .hover-container {
-            position: relative;
-            transition: box-shadow 300ms ease-in-out, border 300ms ease-in-out;
-            border-radius: 15px;
-        }
-
-        .hover-container:hover {
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-            border-color: transparent;
-        }
-
-        .hover-container .hover-text {
-            transition: opacity 300ms ease-in-out;
-            opacity: 1;
-            position: relative;
-            display: inline-block;
-        }
-
-        .hover-container .hover-text.hidden {
-            opacity: 0;
-        }
-
-        header {
-            transition: background-color 0.5s ease;
-        }
-
-        .hidden-block {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, box-shadow 0.5s ease;
-            box-shadow: 0 4px 34.8px 0 rgba(0, 0, 0, 0.15); /* Добавлена тень */
-        }
-
-        .hidden-block.expanded {
-            max-height: 93px;
-        }
-
-        .rotate {
-            transform: rotate(180deg);
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .header-menu {
-            position: absolute;
-            margin-top: 93px;
-            padding-bottom: 93px;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: white;
-            overflow: hidden;
-            transform: translateX(100%);
-            transition: transform 0.5s ease;
-            z-index: 999;
-        }
-
-        .header-menu.expanded {
-            transform: translateX(0);
-        }
-
-        .header-menu.expanded body {
-            overflow-y: hidden;
-        }
-
-        body.no-scroll {
-            overflow: hidden;
-        }
-    </style>
     <title></title>
 </head>
 <body class="overflow-x-hidden">
@@ -111,16 +20,16 @@
         <img src="{% static 'img/logo.png' %}" alt="" class="h-[53px]">
     </a>
     <div class="flex gap-[35px] max-1000px:hidden">
-        <a href="#" id="servicesBtn" class="flex">Услуги
+        <a href="#" id="servicesBtn" class="flex text-[#161616] opacity-[60%]">Услуги
             <svg id="arrowIcon" width="24" height="25" viewBox="0 0 24 25" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 11.5L12 14.5L9 11.5" stroke="#161616" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round"/>
             </svg>
         </a>
-        <a href="{% url 'portfolio' %}">Работы</a>
-        <a href="{% url 'index' %}#about-us" class="cursor-pointer">О нас</a>
-        <a href="{% url 'contact' %}">Контакты</a>
+        <a href="{% url 'portfolio' %}" class="text-[#161616] opacity-[60%]">Работы</a>
+        <a href="{% url 'index' %}#about-us" class="text-[#161616] opacity-[60%] cursor-pointer">О нас</a>
+        <a href="{% url 'contact' %}" class="text-[#161616] opacity-[60%]">Контакты</a>
     </div>
     <a href="{{ settings.contacts.telegram }}" class="flex items-center max-1000px:hidden">
         <svg width="30" height="30" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -130,8 +39,8 @@
                       fill="white"/>
             </g>
         </svg>
-        <ul class="list-disc text-[18px] ml-7">
-            <li>{{ settings.contacts.phone }}</li>
+        <ul class="header-phone-number list-disc text-[18px] ml-7">
+            <li class="font-semibold">{{ settings.contacts.phone }}</li>
         </ul>
     </a>
     <div class="flex items-center max-1000px:hidden">
@@ -171,7 +80,7 @@
     {% endfor %}
 </div>
 
-<div id="headerMenu" class="header-menu flex flex-col justify-center items-center">
+<div id="headerMenu" class="header-menu flex flex-col pt-[20%] items-center">
     <div class="flex gap-[35px] flex-col">
         <a href="#" id="servicesBtn" class="flex opacity-[30%]">Услуги
             <svg id="arrowIcon" width="24" height="25" viewBox="0 0 24 25" fill="none"
@@ -190,7 +99,7 @@
         <a href="{% url 'contact' %}" class="opacity-[30%]">Контакты</a>
     </div>
     <a class="flex items-center mt-[50px] mb-[30px]">
-        <ul class="list-disc text-[18px] ml-7">
+        <ul class="header-phone-number list-disc text-[18px] font-semibold ml-7">
             <li>{{ settings.contacts.phone }}</li>
         </ul>
     </a>

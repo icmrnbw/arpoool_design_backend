@@ -6,27 +6,32 @@
     <section
             class="w-[1140px] max-1000px:pb-[90px] max-1180px:px-5 max-1180px:w-auto m-auto flex flex-col justify-center mt-[139px] text-center pb-[190px]">
         <img src="{% static 'img/bg.gif' %}" alt="Background GIF"
-             class="background-gif max-[500px]:h-[300px] max-[500px]:w-[300px] absolute left-[97%] w-[312px] h-[312px] object-cover transform -translate-x-1/2 -translate-y-1/2">
-        <h2 style="text-transform: uppercase" class="text-[#161616] max-1000px:text-[38px] max-[500px]:text-[22px] max-1000px:leading-[42px] max-[500px]:leading-[28px] font-normal text-[55px] leading-[71.5px] mb-2.5 days-one-regular">
+             class="background-gif max-[500px]:top-[20%] max-[500px]:h-[120px] max-[500px]:w-[120px] absolute left-[97%] w-[312px] h-[312px] object-cover transform -translate-x-1/2 -translate-y-1/2">
+        <h2 style="text-transform: uppercase"
+            class="text-[#161616] max-1000px:text-[38px] max-[500px]:text-[22px] max-1000px:leading-[42px] max-[500px]:leading-[28px] font-normal text-[55px] leading-[71.5px] mb-2.5 days-one-regular">
             {{ settings.portfolio.header }}</h2>
         <p class="self-center w-[60%] max-[500px]:w-full max-1000px:text-[15px] max-[500px]:text-[12px] text-[#161616] text-[18px] mb-[30px]">
             {{ settings.portfolio.text }}</p>
+        <svg class="self-center cursor-pointer" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28.6008 22.9284C29.025 22.5748 29.0824 21.9442 28.7288 21.52C28.3752 21.0957 27.7447 21.0384 27.3204 21.3919L28.6008 22.9284ZM21 27.9607L20.3598 28.7289C20.7306 29.0379 21.2693 29.0379 21.6401 28.7289L21 27.9607ZM14.6795 21.3919C14.2552 21.0384 13.6247 21.0957 13.2711 21.52C12.9175 21.9442 12.9749 22.5748 13.3991 22.9284L14.6795 21.3919ZM22 14.0394C22 13.4871 21.5522 13.0394 21 13.0394C20.4477 13.0394 20 13.4871 20 14.0394H22ZM27.3204 21.3919L20.3598 27.1925L21.6401 28.7289L28.6008 22.9284L27.3204 21.3919ZM21.6401 27.1925L14.6795 21.3919L13.3991 22.9284L20.3598 28.7289L21.6401 27.1925ZM22 27.9607L22 14.0394H20L20 27.9607H22ZM31.4298 31.4298C25.6696 37.1901 16.3304 37.1901 10.5702 31.4298L9.15596 32.844C15.6972 39.3853 26.3028 39.3853 32.844 32.844L31.4298 31.4298ZM10.5702 31.4298C4.80994 25.6696 4.80994 16.3304 10.5702 10.5702L9.15596 9.15596C2.61468 15.6972 2.61468 26.3028 9.15596 32.844L10.5702 31.4298ZM10.5702 10.5702C16.3304 4.80994 25.6696 4.80994 31.4298 10.5702L32.844 9.15596C26.3028 2.61468 15.6972 2.61468 9.15596 9.15596L10.5702 10.5702ZM31.4298 10.5702C37.1901 16.3304 37.1901 25.6696 31.4298 31.4298L32.844 32.844C39.3853 26.3028 39.3853 15.6972 32.844 9.15596L31.4298 10.5702Z"
+                  fill="#9000FF"/>
+        </svg>
         <img src="{% static 'img/bg.gif' %}" alt="Background GIF"
-             class="background-gif max-[500px]:h-[300px] max-[500px]:w-[300px] absolute top-[55%] left-[2%] w-[269px] h-[269px] object-cover transform -translate-x-1/2 -translate-y-1/2">
+             class="background-gif max-[500px]:top-[48%] max-[500px]:h-[110px] max-[500px]:w-[110px] absolute top-[55%] left-[2%] w-[269px] h-[269px] object-cover transform -translate-x-1/2 -translate-y-1/2">
     </section>
 
     <section class="w-[914px] max-[954px]:px-5 max-[954px]:w-auto m-auto mt-[90px]">
-        <div class="flex justify-around flex-wrap gap-[15px] max-1000px:justify-normal">
+        <div class="mb-[36px] flex justify-around flex-wrap gap-[15px] max-1000px:justify-normal">
             <a href="?"
-               class="rounded-[10px] max-[500px]:text-[14px] border-[1px] border-[#9000FF] py-2.5 px-[15px] text-center"
-               {% if not request.GET.service %}style="background-color:#9000FF; color: white{% endif %}">
+               class="portfolio-filter opacity-[50%] grayscale-[100%] rounded-[10px] max-[500px]:text-[14px] border-[1px] border-[#9000FF] py-2.5 px-[15px] text-center"
+               {% if not request.GET.service %}style="border-color:#9000FF; color: #9000FF; opacity: 100%; --tw-grayscale: 0{% endif %}">
                 Все
             </a>
 
             {% for service in filterset.form.service.field.queryset %}
                 <a href="?service={{ service.id }}"
-                   class="rounded-[10px] max-[500px]:text-[14px] border-[1px] border-[#9000FF] py-2.5 px-[15px] text-center"
-                   {% if service.id|stringformat:"s" in request.GET.service %}style="background-color:#9000FF; color: white"{% endif %}>
+                   class="portfolio-filter rounded-[10px] opacity-[50%] grayscale-[100%] max-[500px]:text-[14px] border-[1px] border-[#9000FF] py-2.5 px-[15px] text-center"
+                   {% if service.id|stringformat:"s" in request.GET.service %}style="border-color:#9000FF; color: #9000FF; opacity: 100%; --tw-grayscale: 0"{% endif %}>
                     {{ service.name }}
                 </a>
             {% endfor %}
@@ -37,117 +42,118 @@
     <section class="w-[1122px] max-[1164px]:px-5 max-[1164px]:w-auto m-auto">
         {% for project in projects %}
             {% if project|length == 1 %}
-            <div class="mt-[36px] mb-[90px] max-[500px]:mb-[30px]">
-                <a href="{% url 'portfolio_detail' project.0.id %}" class="flex flex-col-reverse">
-                    <div>
-                        <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">
-                            {{ project.0.name }}
-                        </p>
-                        <p class="max-[500px]:text-[12px]">{{ project.0.service.all|join:", " }}</p>
-                    </div>
-                    <div class="mb-4">
-                        <img src="{{ project.0.preview.url }}" alt="FINSUM"
-                             class="object-cover max-h-[500px] w-full max-[500px]:rounded-[7px] rounded-[30px] -rotate-[2.13deg]">
-                    </div>
-                </a>
-            </div>
+                <div class="mb-[90px] max-[500px]:mb-[30px]">
+                    <a href="{% url 'portfolio_detail' project.0.id %}" class="flex flex-col-reverse">
+                        <div>
+                            <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">
+                                {{ project.0.name }}
+                            </p>
+                            <p class="max-[500px]:text-[12px]">{{ project.0.service.all|join:", " }}</p>
+                        </div>
+                        <div class="mb-4">
+                            <img src="{{ project.0.preview.url }}" alt="FINSUM"
+                                 class="object-cover max-h-[500px] w-full max-[500px]:rounded-[7px] rounded-[30px] -rotate-[2.13deg]">
+                        </div>
+                    </a>
+                </div>
             {% else %}
-            {% with forloop.counter|divisibleby:4 as even %}
-            <div class="flex {% if not even %}flex-row-reverse{% endif %} justify-between gap-8">
-                {% for item in project %}
-                    <div class="mt-[36px]{% if forloop.last %}  w-[30%]{% else %}mb-[90px] w-[60%] max-[500px]:w-50%{% endif %}">
-                        <a href="{% url 'portfolio_detail' item.id %}">
-                            <div class="flex flex-col-reverse">
-                                <div>
-                                    <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">
-                                        {{ item.name }}
-                                    </p>
-                                    <p class="max-[500px]:text-[12px]">{{ item.service.all|join:", " }}</p>
-                                </div>
-                                <div class="mb-[21px] max-[320px]:mb-[15px] max-h-[500px] h-full w-full">
-                                    <img src="{{ item.preview.url }}" alt="FINSUM"
-                                         class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px]" style="transform: rotate({{ forloop.counter|get_degree }}deg)">
-                                </div>
+                {% with forloop.counter|divisibleby:4 as even %}
+                    <div class="mt-[36px] flex {% if not even %}flex-row-reverse{% endif %} justify-between gap-8">
+                        {% for item in project %}
+                            <div class="{% if forloop.last %}  w-[30%]{% else %}mb-[90px] w-[60%] max-[500px]:w-50%{% endif %}">
+                                <a href="{% url 'portfolio_detail' item.id %}">
+                                    <div class="flex flex-col-reverse">
+                                        <div>
+                                            <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">
+                                                {{ item.name }}
+                                            </p>
+                                            <p class="max-[500px]:text-[12px]">{{ item.service.all|join:", " }}</p>
+                                        </div>
+                                        <div class="mb-[21px] max-[320px]:mb-[15px] max-h-[500px] h-full w-full">
+                                            <img src="{{ item.preview.url }}" alt="FINSUM"
+                                                 class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px]"
+                                                 style="transform: rotate({{ forloop.counter|get_degree }}deg)">
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+                            {#                    <div class="mt-[36px] mb-[90px] w-[60%] max-[500px]:w-50%">#}
+                            {#                        <a href="#">#}
+                            {#                            <div class="flex flex-col-reverse">#}
+                            {#                                <div>#}
+                            {#                                    <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">#}
+                            {#                                        FIN<span#}
+                            {#                                            class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
+                            {#                                    </p>#}
+                            {#                                    <p class="max-[500px]:text-[12px]">logo, UI Design, branding</p>#}
+                            {#                                </div>#}
+                            {#                                <div class="mb-4 max-h-[500px] h-full w-full">#}
+                            {#                                    <img src="{% static 'img/project-2.png' %}" alt="FINSUM"#}
+                            {#                                         class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px] -rotate-[2.13deg]">#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                        </a>#}
+                            {#                    </div>#}
+                        {% endfor %}
                     </div>
-{#                    <div class="mt-[36px] mb-[90px] w-[60%] max-[500px]:w-50%">#}
-{#                        <a href="#">#}
-{#                            <div class="flex flex-col-reverse">#}
-{#                                <div>#}
-{#                                    <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">#}
-{#                                        FIN<span#}
-{#                                            class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
-{#                                    </p>#}
-{#                                    <p class="max-[500px]:text-[12px]">logo, UI Design, branding</p>#}
-{#                                </div>#}
-{#                                <div class="mb-4 max-h-[500px] h-full w-full">#}
-{#                                    <img src="{% static 'img/project-2.png' %}" alt="FINSUM"#}
-{#                                         class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px] -rotate-[2.13deg]">#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </a>#}
-{#                    </div>#}
-                {% endfor %}
-            </div>
-            {% endwith %}
-{#            <div class="w-[914px] max-[954px]:w-auto m-auto mb-[90px] max-[500px]:mb-[30px]">#}
-{#                <div>#}
-{#                    <a href="#" class="flex flex-col-reverse">#}
-{#                        <div>#}
-{#                            <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">#}
-{#                                FIN<span#}
-{#                                    class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
-{#                            </p>#}
-{#                            <p class="max-[500px]:text-[12px]">logo, UI Design, branding</p>#}
-{#                        </div>#}
-{#                        <div class="mb-4 max-h-[500px] h-full w-full">#}
-{#                            <img src="{% static 'img/project-1.png' %}" alt="FINSUM"#}
-{#                                 class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px]">#}
-{#                        </div>#}
-{#                    </a>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="flex flex-row-reverse justify-between gap-8">#}
-{#                <div class="mt-[36px] w-[30%] max-[500px]:w-40%">#}
-{#                    <a href="#">#}
-{#                        <div class="flex flex-col-reverse">#}
-{#                            <div>#}
-{#                                <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">#}
-{#                                    FIN<span#}
-{#                                        class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
-{#                                </p>#}
-{#                                <p class="max-[500px]:text-[12px]">logo, UI Design, branding</p>#}
-{#                            </div>#}
-{#                            <div class="mb-4 max-h-[500px] h-full w-full">#}
-{#                                <img src="{% static 'img/project-5.png' %}" alt="FINSUM"#}
-{#                                     class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px]">#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </a>#}
-{#                </div>#}
-{#                <div class="mt-[36px] mb-[90px] w-[60%] max-[500px]:w-50%">#}
-{#                    <a href="#">#}
-{#                        <div class="flex flex-col-reverse">#}
-{#                            <div>#}
-{#                                <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">#}
-{#                                    FIN<span#}
-{#                                        class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
-{#                                </p>#}
-{#                                <p class="max-[500px]:text-[12px]">logo, UI Design, branding</p>#}
-{#                            </div>#}
-{#                            <div class="mb-4 max-h-[500px] h-full w-full">#}
-{#                                <img src="{% static 'img/project-2.png' %}" alt="FINSUM"#}
-{#                                     class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px] -rotate-[2.13deg]">#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </a>#}
-{#                </div>#}
-{#            </div>#}
+                {% endwith %}
+                {#            <div class="w-[914px] max-[954px]:w-auto m-auto mb-[90px] max-[500px]:mb-[30px]">#}
+                {#                <div>#}
+                {#                    <a href="#" class="flex flex-col-reverse">#}
+                {#                        <div>#}
+                {#                            <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">#}
+                {#                                FIN<span#}
+                {#                                    class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
+                {#                            </p>#}
+                {#                            <p class="max-[500px]:text-[12px]">logo, UI Design, branding</p>#}
+                {#                        </div>#}
+                {#                        <div class="mb-4 max-h-[500px] h-full w-full">#}
+                {#                            <img src="{% static 'img/project-1.png' %}" alt="FINSUM"#}
+                {#                                 class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px]">#}
+                {#                        </div>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#            </div>#}
+                {#            <div class="flex flex-row-reverse justify-between gap-8">#}
+                {#                <div class="mt-[36px] w-[30%] max-[500px]:w-40%">#}
+                {#                    <a href="#">#}
+                {#                        <div class="flex flex-col-reverse">#}
+                {#                            <div>#}
+                {#                                <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">#}
+                {#                                    FIN<span#}
+                {#                                        class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
+                {#                                </p>#}
+                {#                                <p class="max-[500px]:text-[12px]">logo, UI Design, branding</p>#}
+                {#                            </div>#}
+                {#                            <div class="mb-4 max-h-[500px] h-full w-full">#}
+                {#                                <img src="{% static 'img/project-5.png' %}" alt="FINSUM"#}
+                {#                                     class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px]">#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#                <div class="mt-[36px] mb-[90px] w-[60%] max-[500px]:w-50%">#}
+                {#                    <a href="#">#}
+                {#                        <div class="flex flex-col-reverse">#}
+                {#                            <div>#}
+                {#                                <p class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616]">#}
+                {#                                    FIN<span#}
+                {#                                        class="days-one-regular font-normal max-1000px:text-[29px] max-[500px]:text-[18px] text-[40px] text-[#161616] opacity-[30%]">SUM</span>#}
+                {#                                </p>#}
+                {#                                <p class="max-[500px]:text-[12px]">logo, UI Design, branding</p>#}
+                {#                            </div>#}
+                {#                            <div class="mb-4 max-h-[500px] h-full w-full">#}
+                {#                                <img src="{% static 'img/project-2.png' %}" alt="FINSUM"#}
+                {#                                     class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px] -rotate-[2.13deg]">#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                    </a>#}
+                {#                </div>#}
+                {#            </div>#}
             {% endif %}
         {% endfor %}
     </section>
 
-  {% include 'chunks/form.html' %}
+    {% include 'chunks/form.html' %}
 
 {% endblock %}

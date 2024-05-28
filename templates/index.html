@@ -4,23 +4,23 @@
     <section
             class="relative pb-[30px] w-[1140px] max-[500px]:pt-10 max-1180px:px-5 max-1180px:w-auto m-auto flex flex-col justify-center pt-[139px] text-center overflow-hidden">
         <img src="{% static 'img/bg.gif' %}" alt="Background GIF"
-             class="background-gif max-[500px]:h-[300px] max-[500px]:w-[300px] absolute top-1/2 left-1/2 w-[500px] h-[500px] object-cover transform -translate-x-1/2 -translate-y-1/2">
-        <h2 style="text-transform: uppercase;" class="text-[#161616] font-normal text-[55px] max-1000px:text-[38px] max-[500px]:text-[22px] max-1000px:leading-[42px] max-[500px]:leading-[28px] leading-[71.5px] mb-2.5 days-one-regular">
+             class="background-gif max-[500px]:h-[360px] max-[500px]:w-[360px] absolute top-1/2 left-1/2 w-[500px] h-[500px] object-cover transform -translate-x-1/2 -translate-y-1/2">
+        <h2 style="text-transform: uppercase;" class="text-[#161616] font-normal text-[55px] max-1000px:text-[38px] max-[500px]:text-[20px] max-1000px:leading-[42px] max-[500px]:leading-[28px] leading-[71.5px] mb-2.5 days-one-regular">
             {{ settings.index.main_block.header }}
         </h2>
         <p class="self-center w-[60%] max-[500px]:w-full text-[#161616] text-[18px] max-1000px:text-[15px] max-[500px]:text-[12px] mb-[30px]">
             {{ settings.index.main_block.text }}
         </p>
         <a href="{% url 'contact' %}"
-           class="text-white py-2.5 px-5 rounded-[100px] border-[#9000FF] bg-purple-70% w-fit self-center">
+           class="text-white py-2.5 px-5 transition-px hover:px-8 duration-300 rounded-[100px] border-[#9000FF] bg-[#B24DFF] w-fit self-center">
             Оставить заявку
         </a>
     </section>
 
     <div class="w-[1140px] max-900px:hidden max-1180px:px-5 max-1180px:w-auto mx-auto flex items-center justify-between mt-[96px] relative z-10">
         <a href="{% url 'portfolio' %}"
-           class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px]">Портфолио</a>
-        <a href="{{ settings.portfolio.telegram }}" class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px]">Написать в
+           class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px]  transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Портфолио</a>
+        <a href="{{ settings.portfolio.telegram }}" class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Написать в
             телеграм</a>
     </div>
 
@@ -55,7 +55,7 @@
             <div class="w-[40%] max-1000px:w-full">
                 <p class="text-[18px] max-1000px:text-[15px] max-[320px]:text-[12px] max-1000px:mb-5">{{ settings.index.recent_works.text }}</p>
                 <a href="{% url 'portfolio' %}" style="display: inline-block;"
-                   class="text-white bg-[#9000FF] py-2.5 px-5 rounded-[100px] mt-5">Все работы</a>
+                   class="text-white border-[1px] border-[#9000FF] bg-[#9000FF] py-2.5 px-5 rounded-[100px] transition-colors duration-300 hover:bg-white hover:text-[#161616] mt-5">Все работы</a>
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@
                     <p class="max-[320px]:text-[12px]">{{ project.service.all|join:", " }}</p>
                     <div class="mt-[25px]">
                         <a href="{% url 'portfolio_detail' project.id %}"
-                           class="text-[14px] border-[#9000FF] rounded-[100px] py-2.5 px-5 border-[1px]">Смотреть
+                           class="text-[14px] border-[#9000FF] rounded-[100px] py-2.5 px-5 border-[1px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Смотреть
                             проект
                         </a>
                     </div>
@@ -108,7 +108,7 @@
             <div class="w-[50%] max-1000px:w-full">
                 <p class="text-[18px] max-[320px]:text-[12px]">{{ settings.index.know_more.text }}</p>
                 <a href="{% url 'contact' %}" style="display: inline-block"
-                   class="text-white bg-[#9000FF] py-2.5 px-5 rounded-[100px] mt-5">Связаться с нами</a>
+                   class="border-[#9000FF] border-[1px] text-[#161616] py-2.5 px-5 rounded-[100px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white mt-5">Связаться с нами</a>
             </div>
         </div>
     </div>

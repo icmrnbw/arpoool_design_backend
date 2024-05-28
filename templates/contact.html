@@ -91,28 +91,28 @@
                 {% csrf_token %}
                 <div class="flex gap-5 mb-5 max-[500px]:flex-col">
                     <div class="flex flex-col w-1/2 max-[500px]:w-full">
-                        <label class=" text-[14px] mb-2.5" for="name">Ваше имя*</label>
+                        <label class=" text-[14px] mb-2.5 opacity-[70%]" for="name">Ваше имя*</label>
                         <input class="rounded-[10px] border-[1px] border-contact text-[14px] py-[14px] px-[15px]"
                                type="text"
                                placeholder="Введите имя"
                                name="name" id="name" required>
                     </div>
                     <div class="flex flex-col w-1/2 max-[500px]:w-full">
-                        <label class="text-[14px] mb-2.5" for="phone-number">Ваш телефон*</label>
+                        <label class="text-[14px] mb-2.5 opacity-[70%]" for="phone-number">Ваш телефон*</label>
                         <input class="rounded-[10px] border-[1px] border-contact text-[14px] py-[14px] px-[15px]"
                                type="text" placeholder="+998"
                                name="phone" id="phone-number" required>
                     </div>
                 </div>
                 <div class="flex flex-col">
-                    <label class="mb-2.5 text-[14px]" for="comment">Комментарий</label>
+                    <label class="mb-2.5 text-[14px] opacity-[70%]" for="comment">Комментарий</label>
                     <textarea class="rounded-[10px] border-[1px] border-contact text-[14px] py-[12px] px-[15px]"
                               name="comment" id="comment"
                               cols="30"
                               rows="4" placeholder="Ваше сообщение"></textarea>
                 </div>
                 <button type="submit"
-                        class="mt-5 rounded-[100px] py-2.5 px-5 border-[1px] border-[#9000FF] text-[14px]">Оставить
+                        class="mt-5 rounded-[100px] py-2.5 px-5 border-[1px] border-[#9000FF] text-[14px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Оставить
                     заявку
                 </button>
             </form>
@@ -172,19 +172,19 @@
         <div class="w-[40%] max-1000px:w-1/2 max-900px:w-full">
             <div class="flex gap-5 mb-5 max-[650px]:flex-col">
                 <div class="flex flex-col w-1/2 max-[650px]:w-full">
-                    <label class="text-[14px] mb-2.5" for="name">Ваше имя*</label>
-                    <input class="rounded-[10px] text-[14px] py-[14px] px-[15px]" type="text" placeholder="Введите имя"
+                    <label class="text-[14px] mb-2.5 opacity-[70%]" for="name">Ваше имя*</label>
+                    <input class="border-[1px] border-contact rounded-[10px] text-[14px] py-[14px] px-[15px]" type="text" placeholder="Введите имя"
                            name="name" id="name" required>
                 </div>
                 <div class="flex flex-col w-1/2 max-[650px]:w-full">
-                    <label class="text-[14px] mb-2.5" for="phone-number">Ваш телефон*</label>
-                    <input class="rounded-[10px] text-[14px] py-[14px] px-[15px]" type="text" placeholder="+998"
+                    <label class="text-[14px] mb-2.5 opacity-[70%]" for="phone-number">Ваш телефон*</label>
+                    <input class="border-[1px] border-contact rounded-[10px] text-[14px] py-[14px] px-[15px]" type="text" placeholder="+998"
                            name="phone" id="phone-number" required>
                 </div>
             </div>
             <div class="flex flex-col">
-                <label class="mb-2.5" for="comment">Комментарий</label>
-                <textarea class="rounded-[10px] text-[14px] py-[12px] px-[15px]" name="comment" id="comment" cols="30"
+                <label class="mb-2.5" for="comment opacity-[70%]">Комментарий</label>
+                <textarea class="border-[1px] border-contact rounded-[10px] text-[14px] py-[12px] px-[15px]" name="comment" id="comment" cols="30"
                           rows="6" placeholder="Ваше сообщение"></textarea>
             </div>
             <button type="submit" class="mt-5 rounded-[100px] py-2.5 px-5 border-[1px] border-[#FFFFFF]">Оставить
