@@ -15,7 +15,7 @@ def switch_language(request, lang_code):
 
 
 def portfolio_view(request):
-    queryset = Project.objects.all()
+    queryset = Project.objects.filter(active=True)
     filterset = ProjectFilter(request.GET, queryset=queryset)
     projects = filterset.qs
     rearranged_projects = []
@@ -47,9 +47,9 @@ def portfolio_view(request):
 
 
 def index_view(request):
-    clients = Client.objects.all()
-    projects = Project.objects.all().order_by('-created_at')[:5]
-    services = Service.objects.all()
+    clients = Client.objects.filter(active=True)
+    projects = Project.objects.filter(show_at_main=True, active=True).order_by('-created_at')
+    services = Service.objects.filter(active=True)
     services_list = list(services)
     grouped_services = [(services_list[i], services_list[i + 1] if i + 1 < len(services_list) else None)
                         for i in range(0, len(services_list), 2)]
@@ -77,7 +77,7 @@ def contact_view(request):
 
 def portfolio_detail_view(request, pk):
     project = get_object_or_404(Project, pk=pk)
-    projects = Project.objects.exclude(pk=pk)
+    projects = Project.objects.exclude(pk=pk).filter(active=True)
     if request.method == 'POST':
         form = InquiryForm(request.POST)
         if form.is_valid():
@@ -91,11 +91,11 @@ def portfolio_detail_view(request, pk):
 
 def service_detail_view(request, pk):
     service = get_object_or_404(Service, pk=pk)
-    services = Service.objects.exclude(pk=pk)
+    services = Service.objects.exclude(pk=pk).filter(active=True)
     services_list = list(services)
     grouped_services = [(services_list[i], services_list[i + 1] if i + 1 < len(services_list) else None)
                         for i in range(0, len(services_list), 2)]
-    projects = Project.objects.all().order_by('-created_at')
+    projects = Project.objects.all().filter(active=True).order_by('-created_at')
     if request.method == 'POST':
         form = InquiryForm(request.POST)
         if form.is_valid():
