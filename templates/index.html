@@ -5,7 +5,8 @@
             class="relative pb-[30px] w-[1140px] max-[500px]:pt-10 max-1180px:px-5 max-1180px:w-auto m-auto flex flex-col justify-center pt-[139px] text-center overflow-hidden">
         <img src="{% static 'img/bg.gif' %}" alt="Background GIF"
              class="background-gif max-[500px]:h-[360px] max-[500px]:w-[360px] absolute top-1/2 left-1/2 w-[500px] h-[500px] object-cover transform -translate-x-1/2 -translate-y-1/2">
-        <h2 style="text-transform: uppercase;" class="text-[#161616] font-normal text-[55px] max-1000px:text-[38px] max-[500px]:text-[20px] max-1000px:leading-[42px] max-[500px]:leading-[28px] leading-[71.5px] mb-2.5 days-one-regular">
+        <h2 style="text-transform: uppercase;"
+            class="text-[#161616] font-normal text-[55px] max-1000px:text-[38px] max-[500px]:text-[20px] max-1000px:leading-[42px] max-[500px]:leading-[28px] leading-[71.5px] mb-2.5 days-one-regular">
             {{ settings.index.main_block.header }}
         </h2>
         <p class="self-center w-[60%] max-[500px]:w-full text-[#161616] text-[18px] max-1000px:text-[15px] max-[500px]:text-[12px] mb-[30px]">
@@ -20,17 +21,32 @@
     <div class="w-[1140px] max-900px:hidden max-1180px:px-5 max-1180px:w-auto mx-auto flex items-center justify-between mt-[96px] relative z-10">
         <a href="{% url 'portfolio' %}"
            class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px]  transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Портфолио</a>
-        <a href="{{ settings.portfolio.telegram }}" class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Написать в
+        <a href="{{ settings.portfolio.telegram }}"
+           class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Написать
+            в
             телеграм</a>
     </div>
 
+    {#    <div class="w-[1140px] max-1180px:px-5 max-1180px:w-auto max-900px:mt-0 pt-10 m-auto flex justify-center mt-[-106px] relative">#}
+    {#        <iframe class="rounded-[77px] scroll-image max-900px:min-h-[396px] max-900px:rounded-[10px] max-[500px]:min-h-[168px] max-900px:w-full"#}
+    {#                id="scrollImage" width="153" height="86"#}
+    {#                src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=ExUCSVrAG0grty3p"#}
+    {#                title="YouTube video player" frameborder="0"#}
+    {#                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"#}
+    {#                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>#}
+    {#    </div>#}
+
     <div class="w-[1140px] max-1180px:px-5 max-1180px:w-auto max-900px:mt-0 pt-10 m-auto flex justify-center mt-[-106px] relative">
-        <iframe class="rounded-[77px] scroll-image max-900px:min-h-[396px] max-900px:rounded-[10px] max-[500px]:min-h-[168px] max-900px:w-full"
-                id="scrollImage" width="153" height="86"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=ExUCSVrAG0grty3p"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <video-js id="scrollImage"
+                  class="video-js vjs-big-play-centered scroll-image max-900px:min-h-[396px] max-900px:rounded-[10px] max-[500px]:min-h-[168px] max-900px:w-full"
+                  width="153" height="86" controls preload="auto" data-setup='{}'>
+            <source src="static/img/test.mp4" type="video/mp4"/>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video-js>
     </div>
 
     <section class="mt-[125px] max-[500px]:mt-[50px] max-1180px:px-5 max-1180px:w-auto w-[1140px] m-auto">
@@ -39,9 +55,11 @@
         <div>
             {% for pair in grouped_services %}
                 <div class="hover-container max-[800px]:p-2.5 max-[800px]:text-center max-[800px]:flex-col flex mt-[30px] items-center p-[30px] justify-between border-[1px] rounded-[15px] border-black-30%">
-                    <p style="text-transform: uppercase" class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[14px] font-[600] {% if pair.1 %}hover-text{% endif %}"
+                    <p style="text-transform: uppercase"
+                       class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[14px] font-[600] {% if pair.1 %}hover-text{% endif %}"
                        data-hover-text="{{ pair.1.name }}">{{ pair.0.name }}</p>
-                    <p style="text-transform: uppercase" class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[12px] !opacity-[30%] font-[600] {% if pair.1 %}hover-text{% endif %}"
+                    <p style="text-transform: uppercase"
+                       class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[12px] !opacity-[30%] font-[600] {% if pair.1 %}hover-text{% endif %}"
                        data-hover-text="{{ pair.1.tools }}">{{ pair.0.tools }}</p>
                 </div>
             {% endfor %}
@@ -55,7 +73,8 @@
             <div class="w-[40%] max-1000px:w-full">
                 <p class="text-[18px] max-1000px:text-[15px] max-[320px]:text-[12px] max-1000px:mb-5">{{ settings.index.recent_works.text }}</p>
                 <a href="{% url 'portfolio' %}" style="display: inline-block;"
-                   class="text-white border-[1px] border-[#9000FF] bg-[#9000FF] py-2.5 px-5 rounded-[100px] transition-colors duration-300 hover:bg-white hover:text-[#161616] mt-5">Все работы</a>
+                   class="text-white border-[1px] border-[#9000FF] bg-[#9000FF] py-2.5 px-5 rounded-[100px] transition-colors duration-300 hover:bg-white hover:text-[#161616] mt-5">Все
+                    работы</a>
             </div>
         </div>
     </div>
@@ -108,7 +127,8 @@
             <div class="w-[50%] max-1000px:w-full">
                 <p class="text-[18px] max-[320px]:text-[12px]">{{ settings.index.know_more.text }}</p>
                 <a href="{% url 'contact' %}" style="display: inline-block"
-                   class="border-[#9000FF] border-[1px] text-[#161616] py-2.5 px-5 rounded-[100px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white mt-5">Связаться с нами</a>
+                   class="border-[#9000FF] border-[1px] text-[#161616] py-2.5 px-5 rounded-[100px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white mt-5">Связаться
+                    с нами</a>
             </div>
         </div>
     </div>
@@ -117,37 +137,43 @@
         <div class="flex max-1000px:flex-col gap-5 max-1000px:gap-0">
             {% for item in settings.index.know_more.grouped_cards %}
                 {% if forloop.counter0|divisibleby:"2" %}
-                <div class="w-1/2 max-1000px:w-full">
-                    <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
-                        <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
-                            {% if item.0.number %}{{ item.0.number }}{% if item.0.plus_sign %}+{% endif %}{% else %}
-                                0{% endif %}</h1>
-                        <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
-                            {{ item.0.text }}</p>
+                    <div class="w-1/2 max-1000px:w-full">
+                        <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
+                            <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
+                                {% if item.0.number %}{{ item.0.number }}{% if item.0.plus_sign %}+{% endif %}{% else %}
+                                    0{% endif %}</h1>
+                            <p style="text-transform: uppercase"
+                               class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
+                                {{ item.0.text }}</p>
+                        </div>
+                        <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
+                            <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
+                                {% if item.1.number %}{{ item.1.number }}{% if item.1.plus_sign %}+{% endif %}{% else %}
+                                    0{% endif %}</h1>
+                            <p style="text-transform: uppercase"
+                               class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
+                                {{ item.1.text }}</p>
+                        </div>
                     </div>
-                    <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
-                        <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">{% if item.1.number %}{{ item.1.number }}{% if item.1.plus_sign %}+{% endif %}{% else %}
-                                0{% endif %}</h1>
-                        <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
-                            {{ item.1.text }}</p>
-                    </div>
-                </div>
                 {% else %}
-                <div class="w-1/2 max-1000px:w-full">
-                    <div class="flex mt-[82px] max-1000px:mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
-                        <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
-                            {% if item.0.number %}{{ item.0.number }}{% if item.0.plus_sign %}+{% endif %}{% else %}
-                                0{% endif %}</h1>
-                        <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
-                            {{ item.0.text }}</p>
+                    <div class="w-1/2 max-1000px:w-full">
+                        <div class="flex mt-[82px] max-1000px:mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
+                            <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
+                                {% if item.0.number %}{{ item.0.number }}{% if item.0.plus_sign %}+{% endif %}{% else %}
+                                    0{% endif %}</h1>
+                            <p style="text-transform: uppercase"
+                               class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
+                                {{ item.0.text }}</p>
+                        </div>
+                        <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
+                            <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
+                                {% if item.1.number %}{{ item.1.number }}{% if item.1.plus_sign %}+{% endif %}{% else %}
+                                    0{% endif %}</h1>
+                            <p style="text-transform: uppercase"
+                               class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
+                                {{ item.1.text }}</p>
+                        </div>
                     </div>
-                    <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
-                        <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">{% if item.1.number %}{{ item.1.number }}{% if item.1.plus_sign %}+{% endif %}{% else %}
-                                0{% endif %}</h1>
-                        <p style="text-transform: uppercase" class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
-                            {{ item.1.text }}</p>
-                    </div>
-                </div>
                 {% endif %}
             {% endfor %}
         </div>
