@@ -36,17 +36,23 @@
     {#                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>#}
     {#    </div>#}
 
+{#    <div class="w-[1140px] max-1180px:px-5 max-1180px:w-auto max-900px:mt-0 pt-10 m-auto flex justify-center mt-[-106px] relative">#}
+{#        <video-js id="scrollImage"#}
+{#                  class="video-js vjs-big-play-centered scroll-image max-900px:min-h-[396px] max-900px:rounded-[10px] max-[500px]:min-h-[168px] max-900px:w-full"#}
+{#                  width="153" height="86" controls preload="auto" data-setup='{}'>#}
+{#            <source src="static/img/test.mp4" type="video/mp4"/>#}
+{#            <p class="vjs-no-js">#}
+{#                To view this video please enable JavaScript, and consider upgrading to a#}
+{#                web browser that#}
+{#                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>#}
+{#            </p>#}
+{#        </video-js>#}
+{#    </div>#}
+
     <div class="w-[1140px] max-1180px:px-5 max-1180px:w-auto max-900px:mt-0 pt-10 m-auto flex justify-center mt-[-106px] relative">
-        <video-js id="scrollImage"
-                  class="video-js vjs-big-play-centered scroll-image max-900px:min-h-[396px] max-900px:rounded-[10px] max-[500px]:min-h-[168px] max-900px:w-full"
-                  width="153" height="86" controls preload="auto" data-setup='{}'>
-            <source src="static/img/test.mp4" type="video/mp4"/>
-            <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a
-                web browser that
-                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-            </p>
-        </video-js>
+        <video autoplay muted controls width="153" height="86" preload="auto" id="scrollImage" class="scroll-image max-900px:w-full rounded-[77px] max-900px:rounded-[10px] max-900px:min-h-[396px] max-[500px]:min-h-[168px]">
+            <source src="static/img/test.mp4" type="video/mp4" />
+        </video>
     </div>
 
     <section class="mt-[125px] max-[500px]:mt-[50px] max-1180px:px-5 max-1180px:w-auto w-[1140px] m-auto">

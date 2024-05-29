@@ -1440,6 +1440,9 @@ video {
 
 .scroll-image {
   transition: all 0.5s ease-in-out;
+  height: 86px;
+  width: 153px;
+  position: relative;
 }
 
 .scroll-image.expanded {

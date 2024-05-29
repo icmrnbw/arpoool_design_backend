@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
-    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet"/>
     <title></title>
 </head>
 <body class="overflow-x-hidden">
@@ -92,7 +92,8 @@
         </a>
         <div id="hiddenBlock" class="hidden-block !flex-col max-1000px:hidden flex justify-center gap-[70px]">
             {% for service in services %}
-                <a href="{% url 'service_detail' service.id %}" class="text-[14px] text-[#161616] py-[35px]">{{ service.name }}</a>
+                <a href="{% url 'service_detail' service.id %}"
+                   class="text-[14px] text-[#161616] py-[35px]">{{ service.name }}</a>
             {% endfor %}
         </div>
         <a href="{% url 'portfolio' %}" class="opacity-[30%]">Работы</a>
@@ -212,30 +213,29 @@
     }
 
     window.addEventListener('scroll', function () {
-        const image = document.getElementById('scrollImage');
-        const scrollPosition = window.scrollY || window.pageYOffset;
-        const windowWidth = window.innerWidth;
+            const container = document.getElementById('scrollImage');
+            const scrollPosition = window.scrollY || window.pageYOffset;
+            const windowWidth = window.innerWidth;
 
-        if (windowWidth > 900) {
-            if (scrollPosition > 300) {
-                image.classList.add('expanded');
+            if (windowWidth > 900) {
+                if (scrollPosition > 300) {
+                    container.classList.add('expanded');
+                } else {
+                    container.classList.remove('expanded');
+                }
             } else {
-                image.classList.remove('expanded');
+                container.classList.remove('expanded');
             }
-        } else {
-            image.classList.remove('expanded');
-        }
-    });
+        });
 
+        window.addEventListener('resize', function () {
+            const container = document.getElementById('scrollImage');
+            const windowWidth = window.innerWidth;
 
-    window.addEventListener('resize', function () {
-        const image = document.getElementById('scrollImage');
-        const windowWidth = window.innerWidth;
-
-        if (windowWidth <= 900) {
-            image.classList.remove('expanded');
-        }
-    });
+            if (windowWidth <= 900) {
+                container.classList.remove('expanded');
+            }
+        });
 </script>
 </body>
 </html>
