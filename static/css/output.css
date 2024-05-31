@@ -1196,6 +1196,11 @@ video {
      object-fit: cover;
 }
 
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
 .p-\[30px\] {
   padding: 30px;
 }
