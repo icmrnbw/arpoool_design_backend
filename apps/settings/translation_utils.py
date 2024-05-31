@@ -69,6 +69,9 @@ def get_translation_mapping(schema):
 
 
 def substitute_translation(data: dict, translation_mapping: dict, lang_code: str):
+    if not isinstance(data, dict):
+        return data
+
     new_data = {}
 
     for key, value in data.items():

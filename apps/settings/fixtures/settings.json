@@ -100,7 +100,8 @@
               "text_uz": "Успешных клиентов которым мы вложили вклад в развитие бизнеса (Uz)"
             }
           ]
-        }
+        },
+        "video": "/media/videos/Lumion%20animation%20I%20landscape%20design.mp4"
       },
       "schema": {
         "type": "object",
@@ -123,6 +124,12 @@
                 "widget": "textarea"
               }
             }
+          },
+          "video": {
+            "title": "Видео",
+            "type": "string",
+            "format": "file-url",
+            "handler": "/jsonform-file-handler/"
           },
           "recent_works": {
             "type": "object",

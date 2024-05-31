@@ -22,7 +22,8 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('apps.portfolio.urls')),
-    path('', include('apps.bot.urls', namespace='bot'))
+    path('', include('apps.bot.urls', namespace='bot')),
+    path('', include('apps.settings.urls'))
 ]
 handler404 = 'apps.portfolio.views.handler404_view'
 if settings.DEBUG:
