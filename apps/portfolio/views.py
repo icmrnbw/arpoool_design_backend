@@ -35,7 +35,7 @@ def portfolio_view(request):
         form = InquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect(request.path_info)
     else:
         form = InquiryForm()
     return render(request, 'portfolio.html', {
@@ -50,18 +50,18 @@ def index_view(request):
     clients = Client.objects.filter(active=True)
     projects = Project.objects.filter(show_at_main=True, active=True).order_by('-created_at')
     services = Service.objects.filter(active=True)
-    services_list = list(services)
-    grouped_services = [(services_list[i], services_list[i + 1] if i + 1 < len(services_list) else None)
-                        for i in range(0, len(services_list), 2)]
+    # services_list = list(services)
+    # grouped_services = [(services_list[i], services_list[i + 1] if i + 1 < len(services_list) else None)
+    #                     for i in range(0, len(services_list), 2)]
     if request.method == 'POST':
         form = InquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect(request.path_info)
     else:
         form = InquiryForm()
     return render(request, 'index.html', {'projects': projects, 'services': services, 'clients': clients,
-                                          'grouped_services': grouped_services, 'form': form})
+                                          'form': form})
 
 
 def contact_view(request):
@@ -69,7 +69,7 @@ def contact_view(request):
         form = InquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect(request.path_info)
     else:
         form = InquiryForm()
     return render(request, 'contact.html', {'form': form})
@@ -82,7 +82,7 @@ def portfolio_detail_view(request, pk):
         form = InquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect(request.path_info)
     else:
         form = InquiryForm()
     return render(request, 'portfolio_detail.html', {'project': project, 'projects': projects,
@@ -95,12 +95,14 @@ def service_detail_view(request, pk):
     services_list = list(services)
     grouped_services = [(services_list[i], services_list[i + 1] if i + 1 < len(services_list) else None)
                         for i in range(0, len(services_list), 2)]
-    projects = Project.objects.all().filter(active=True).order_by('-created_at')
+    target_projects = Project.objects.filter(service=pk, active=True).distinct()
+    other_projects = Project.objects.exclude(service=pk).filter(active=True).distinct()
+    projects = list(target_projects) + list(other_projects.order_by('-created_at'))
     if request.method == 'POST':
         form = InquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect(request.path_info)
     else:
         form = InquiryForm()
     context = {
@@ -118,7 +120,7 @@ def inquiry_view(request):
         form = InquiryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect(request.path_info)
     else:
         form = InquiryForm()
     return render(request, 'project_inquiry.html', {'form': form})
