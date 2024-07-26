@@ -8,7 +8,10 @@ class Service(BaseModel):
     name = models.CharField(verbose_name=_('Название'), max_length=255)
     tools = models.CharField(verbose_name=_('Инструмент'), max_length=255)
     tag = models.CharField(verbose_name=_('Тэг'), max_length=255)
+    short_description = models.TextField(verbose_name=_('Краткое описание'), null=True, blank=True, default='Эксперты в цифровом мире, где креатив и инновации объединяются. Вместе создаем уникальный след вашего бизнеса онлайн, обеспечивая рост и успех.')
+    description_header = models.CharField(verbose_name=_('Заголовок описания'), max_length=255)
     description = models.TextField(verbose_name=_('Описание'), )
+    tools_description_header = models.CharField(verbose_name=_('Заголовок описания инструментов'), max_length=255)
     tools_description = models.TextField(verbose_name=_('Описание инструментов'), )
     picture = models.ImageField(verbose_name=_('Картинка'), )
     active = models.BooleanField(verbose_name=_('Активна'), default=True)
@@ -25,10 +28,11 @@ class Project(BaseModel):
     name = models.CharField(verbose_name=_('Название'), max_length=255)
     service = models.ManyToManyField(verbose_name=_('Услуга'), to=Service)
     description = models.TextField(verbose_name=_('Описание'), )
-    year = models.CharField(verbose_name=_('Год'), max_length=9)  # чтобы могло поместиться 2023-2024, как в фигме
+    year = models.CharField(verbose_name=_('Год'), max_length=9, blank=True, null=True)  # чтобы могло поместиться 2023-2024, как в фигме
     client = models.CharField(verbose_name=_('Клиент'), max_length=255)
     preview = models.ImageField(verbose_name=_('Превью'), )
-    content_picture = models.ImageField(verbose_name=_('Контентное изображение'), )
+    content_picture = models.ImageField(verbose_name=_('Контентное изображение'), blank=True, null=True)
+    content_video = models.FileField(verbose_name=_('Контентное видео'), blank=True, null=True)
     active = models.BooleanField(verbose_name=_('Активен'), default=True)
     show_at_main = models.BooleanField(verbose_name=_('Показывать на главной странице'), default=True)
 
