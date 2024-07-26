@@ -9,9 +9,7 @@
             <h2 style="text-transform: uppercase"
                 class="days-one-regular font-normal max-1000px:text-[32px] max-[320px]:text-[18px] text-[55px] text-[#161616] mb-2.5">{{ service.name }}</h2>
             <p class="text-[18px] max-[320px]:text-[12px] max-[500px]:text-[15px] text-[#161616] max-[500px]:mb-5 mb-[30px]">
-                Эксперты в цифровом мире, где креатив и инновации объединяются.
-                Вместе создаем уникальный след вашего бизнеса
-                онлайн, обеспечивая рост и успех.</p>
+                {{ service.short_description }}</p>
             <a href="{% url 'contact' %}"
                class="border-[1px] border-[#9000FF] py-2.5 px-5 text-[14px] text-[#161616] rounded-[100px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">
                 Консультация
@@ -24,7 +22,7 @@
 
     <section
             class="w-[1146px] max-1180px:px-5 max-1180px:w-auto m-auto max-1000px:mt-[90px] max-[500px]:mt-[50px] mt-[130px]">
-        <h3 class="days-one-regular font-normal text-[30px] max-1000px:text-[24px] max-[320px]:text-[18px] text-[#161616] mb-2.5">{{ service.name }}</h3>
+        <h3 class="days-one-regular font-normal text-[30px] max-1000px:text-[24px] max-[320px]:text-[18px] text-[#161616] mb-2.5">{{ service.description_header }}</h3>
         <p class="text-[18px] max-1000px:text-[15px] max-[320px]:text-[12px] text-[#161616]">Lorem ipsum dolor sit amet
             consectetur. Ut a pulvinar lorem sit metus eget. Lobortis tempus eget sit sit in sit.
             Diam facilisi urna eget gravida facilisis phasellus risus sodales neque. Nulla feugiat a facilisis feugiat a
@@ -39,7 +37,7 @@
 
     <section class="w-full m-auto mt-[128px] max-[500px]:mt-[50px] relative">
         <h4 class="text-center text-[40px] max-1000px:text-[29px] max-[500px]:text-[18px] text-[#161616] days-one-regular font-normal">
-            СЛЕДУЮЩИЙ</h4>
+            {{ settings.portfolio.work_feed_header }}</h4>
         <div class="relative mt-10 max-1180px:!pl-5" style="padding-left: calc((100vw - 1146px) / 2);">
             <div class="flex gap-5 overflow-x-auto scrollbar-hide pb-5">
                 {% for project in projects %}
@@ -62,7 +60,7 @@
 
     <section class="w-[1146px] max-1180px:px-5 max-1180px:w-auto m-auto mt-[70px]">
         <h3 class="days-one-regular font-normal text-[30px] max-1000px:text-[24px] max-[320px]:text-[18px] text-[#161616] mb-2.5">
-            ИНСТРУМЕНТЫ</h3>
+            {{ service.tools_description_header }}</h3>
         <p class="text-[18px] max-1000px:text-[15px] max-[320px]:text-[12px] text-[#161616]">{{ service.tools_description }}</p>
     </section>
 
