@@ -213,29 +213,29 @@
     }
 
     window.addEventListener('scroll', function () {
-            const container = document.getElementById('scrollImage');
-            const scrollPosition = window.scrollY || window.pageYOffset;
-            const windowWidth = window.innerWidth;
+        const container = document.getElementById('scrollImage');
+        const scrollPosition = window.scrollY || window.pageYOffset;
+        const windowWidth = window.innerWidth;
 
-            if (windowWidth > 900) {
-                if (scrollPosition > 300) {
-                    container.classList.add('expanded');
-                } else {
-                    container.classList.remove('expanded');
-                }
+        if (windowWidth > 900) {
+            if (scrollPosition > 300) {
+                container.classList.add('expanded');
             } else {
                 container.classList.remove('expanded');
             }
-        });
+        } else {
+            container.classList.remove('expanded');
+        }
+    });
 
-        window.addEventListener('resize', function () {
-            const container = document.getElementById('scrollImage');
-            const windowWidth = window.innerWidth;
+    window.addEventListener('resize', function () {
+        const container = document.getElementById('scrollImage');
+        const windowWidth = window.innerWidth;
 
-            if (windowWidth <= 900) {
-                container.classList.remove('expanded');
-            }
-        });
+        if (windowWidth <= 900) {
+            container.classList.remove('expanded');
+        }
+    });
 </script>
 </body>
 </html>
