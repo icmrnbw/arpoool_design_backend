@@ -4,7 +4,7 @@ from .models import Service, Project
 
 @register(Service)
 class ServiceTranslationOptions(TranslationOptions):
-    fields = ('name', 'description', 'tools_description',)
+    fields = ('name', 'short_description', 'description_header', 'description', 'tools_description_header', 'tools_description',)
 
 
 @register(Project)
