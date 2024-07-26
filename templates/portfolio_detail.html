@@ -29,19 +29,27 @@
             <p class="text-[#161616] opacity-[50%]">Сделанная работа</p>
             <p class="text-[#161616]">{{ project.service.all|join:", " }}</p>
         </div>
-        <div>
-            <p class="text-[#161616] opacity-[50%]">Год</p>
-            <p class="text-[#161616]">{{ project.year }}</p>
-        </div>
+        {% if project.year %}
+            <div>
+                <p class="text-[#161616] opacity-[50%]">Год</p>
+                <p class="text-[#161616]">{{ project.year }}</p>
+            </div>
+        {% endif %}
     </section>
 
     <section class="w-[1146px] max-1180px:w-auto max-1000px:mt-[80px] max-[500px]:mt-[30px] m-auto mt-[128px]">
         <img src="{{ project.content_picture.url }}" alt="Finsum Preview">
+        {% if project.content_video %}
+            <video loop autoplay muted width="153" height="86" preload="auto" id="scrollImage"
+               class="object-fill scroll-image max-900px:w-full rounded-[77px] max-900px:rounded-[10px] max-900px:min-h-[396px] max-[500px]:min-h-[168px]">
+            <source src="{{ project.content_video.url }}" type="video/mp4"/>
+        </video>
+        {% endif %}
     </section>
 
     <section class="w-full m-auto mt-[128px] relative">
         <h4 class="text-center text-[40px] max-1000px:text-[29px] max-[500px]:text-[18px] text-[#161616] days-one-regular font-normal">
-            СЛЕДУЮЩИЙ</h4>
+            {{ settings.portfolio.work_feed_header }}</h4>
         <div class="relative mt-10 max-1180px:!pl-5" style="padding-left: calc((100vw - 1146px) / 2);">
             <div class="flex gap-5 overflow-x-auto scrollbar-hide pb-5">
                 {% for project in projects %}
