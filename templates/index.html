@@ -21,15 +21,16 @@
     <div class="w-[1140px] max-900px:hidden max-1180px:px-5 max-1180px:w-auto mx-auto flex items-center justify-between mt-[96px] relative z-10">
         <a href="{% url 'portfolio' %}"
            class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px]  transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Портфолио</a>
-        <a href="{{ settings.portfolio.telegram }}"
+        <a href="{{ settings.contacts.telegram }}"
            class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Написать
             в
             телеграм</a>
     </div>
 
     <div class="w-[1140px] max-1180px:px-5 max-1180px:w-auto max-900px:mt-0 pt-10 m-auto flex justify-center mt-[-106px] relative">
-        <video loop autoplay muted width="153" height="86" preload="auto" id="scrollImage" class="object-fill scroll-image max-900px:w-full rounded-[77px] max-900px:rounded-[10px] max-900px:min-h-[396px] max-[500px]:min-h-[168px]">
-            <source src="{{ settings.index.video }}" type="video/mp4" />
+        <video loop autoplay muted width="153" height="86" preload="auto" id="scrollImage"
+               class="object-fill scroll-image max-900px:w-full rounded-[77px] max-900px:rounded-[10px] max-900px:min-h-[396px] max-[500px]:min-h-[168px]">
+            <source src="{{ settings.index.video }}" type="video/mp4"/>
         </video>
     </div>
 
@@ -37,15 +38,12 @@
         <h4 class="text-center days-one-regular font-normal text-[40px] max-1000px:text-[30px] max-[500px]:text-[18px] text-[#161616]">
             ОСНОВНЫЕ УСЛУГИ</h4>
         <div>
-            {% for pair in grouped_services %}
-                <div class="hover-container max-[800px]:p-2.5 max-[800px]:text-center max-[800px]:flex-col flex mt-[30px] items-center p-[30px] justify-between border-[1px] rounded-[15px] border-black-30%">
+            {% for service in services %}
+                <a href="{% url 'service_detail' service.id %}" class="hover-container max-[800px]:p-2.5 max-[800px]:text-center max-[800px]:flex-col flex mt-[30px] items-center p-[30px] justify-between border-[1px] rounded-[15px] border-black-30%">
                     <p style="text-transform: uppercase"
-                       class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[14px] font-[600] {% if pair.1 %}hover-text{% endif %}"
-                       data-hover-text="{{ pair.1.name }}">{{ pair.0.name }}</p>
-                    <p style="text-transform: uppercase"
-                       class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[12px] !opacity-[30%] font-[600] {% if pair.1 %}hover-text{% endif %}"
-                       data-hover-text="{{ pair.1.tools }}">{{ pair.0.tools }}</p>
-                </div>
+                       class="text-[24px] max-1000px:text-[19px] max-[500px]:text-[14px] font-[600]"
+                       data-hover-text="{{ service.name }}">{{ service.name }}</p>
+                </a>
             {% endfor %}
         </div>
     </section>
@@ -130,14 +128,17 @@
                                class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
                                 {{ item.0.text }}</p>
                         </div>
-                        <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
-                            <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
-                                {% if item.1.number %}{{ item.1.number }}{% if item.1.plus_sign %}+{% endif %}{% else %}
-                                    0{% endif %}</h1>
-                            <p style="text-transform: uppercase"
-                               class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
-                                {{ item.1.text }}</p>
-                        </div>
+                        {% if item.1 %}
+                            <div class="flex mt-5 flex-col bg-[#9000FF] rounded-[20px] text-white p-[30px]">
+                                <h1 class="text-[80px] max-[320px]:text-[50px] mb-[60px] font-semibold">
+                                    {% if item.1.number %}{{ item.1.number }}{% if item.1.plus_sign %}
+                                        +{% endif %}{% else %}
+                                        0{% endif %}</h1>
+                                <p style="text-transform: uppercase"
+                                   class="text-[18px] max-[320px]:text-[12px] w-[65%] max-1000px:w-full self-end max-1000px:self-start font-semibold">
+                                    {{ item.1.text }}</p>
+                            </div>
+                        {% endif %}
                     </div>
                 {% else %}
                     <div class="w-1/2 max-1000px:w-full">
@@ -163,6 +164,7 @@
         </div>
     </section>
 
+    {% if clients %}
     <section id="our-clients"
              class="w-[1146px] max-1180px:px-5 max-1180px:w-auto m-auto max-[500px]:mt-[50px] mt-[125px]">
         <h4 class="text-[40px] max-1000px:text-[29px] max-[320px]:text-[18px] days-one-regular font-normal text-[#161616] text-center mb-10">
@@ -176,6 +178,7 @@
             {% endfor %}
         </div>
     </section>
+    {% endif %}
 
     {% include 'chunks/form.html' %}
 {% endblock %}
