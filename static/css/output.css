@@ -620,6 +620,10 @@ video {
   position: static;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -658,6 +662,10 @@ video {
 
 .z-10 {
   z-index: 10;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .z-\[110\] {
@@ -865,6 +873,10 @@ video {
   height: 67px;
 }
 
+.h-\[93px\] {
+  height: 93px;
+}
+
 .h-full {
   height: 100%;
 }
@@ -954,12 +966,20 @@ video {
   width: 100%;
 }
 
+.max-w-\[1140px\] {
+  max-width: 1140px;
+}
+
 .max-w-\[680px\] {
   max-width: 680px;
 }
 
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }
 
 .-translate-x-1\/2 {
@@ -1102,6 +1122,10 @@ video {
   overflow-x: hidden;
 }
 
+.\!overflow-x-hidden {
+  overflow-x: hidden !important;
+}
+
 .rounded-\[100px\] {
   border-radius: 100px;
 }
@@ -1174,6 +1198,11 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.\!bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
 }
 
 .bg-gradient-to-l {
@@ -1274,16 +1303,36 @@ video {
   padding-top: 2.5rem;
 }
 
-.pt-\[139px\] {
-  padding-top: 139px;
-}
-
 .pt-\[20\%\] {
   padding-top: 20%;
 }
 
 .pt-\[35px\] {
   padding-top: 35px;
+}
+
+.pt-\[99px\] {
+  padding-top: 99px;
+}
+
+.pb-\[140px\] {
+  padding-bottom: 140px;
+}
+
+.pb-\[100px\] {
+  padding-bottom: 100px;
+}
+
+.pb-\[0px\] {
+  padding-bottom: 0px;
+}
+
+.pb-\[80px\] {
+  padding-bottom: 80px;
+}
+
+.pb-\[50px\] {
+  padding-bottom: 50px;
 }
 
 .text-center {
@@ -1501,6 +1550,7 @@ header {
 }
 
 .header-menu {
+  display: none;
   position: absolute;
   margin-top: 93px;
   padding-bottom: 93px;
@@ -1517,6 +1567,7 @@ header {
 
 .header-menu.expanded {
   transform: translateX(0);
+  display: flex;
 }
 
 .header-menu.expanded body {
@@ -1713,6 +1764,18 @@ body.no-scroll {
 
   .max-1000px\:pb-\[90px\] {
     padding-bottom: 90px;
+  }
+
+  .max-1000px\:pb-\[50px\] {
+    padding-bottom: 50px;
+  }
+
+  .max-1000px\:pb-\[30px\] {
+    padding-bottom: 30px;
+  }
+
+  .max-1000px\:pb-\[20px\] {
+    padding-bottom: 20px;
   }
 
   .max-1000px\:text-\[14px\] {

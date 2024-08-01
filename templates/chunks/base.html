@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en" style="scroll-behavior: smooth">
+<html lang="en" style="scroll-behavior: smooth; overflow-x: hidden">
 <head>
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
@@ -14,63 +14,54 @@
     <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet"/>
     <title></title>
 </head>
-<body class="overflow-x-hidden">
-<header id="header"
-        class="z-[110] w-[1140px] max-1180px:px-5 max-1180px:w-auto flex m-auto justify-between items-center">
-    <a href="{% url 'index' %}" class="py-5">
-        <img src="{% static 'img/logo.png' %}" alt="" class="h-[53px]">
-    </a>
-    <div class="flex gap-[35px] max-1000px:hidden">
-        <a href="#" id="servicesBtn" class="flex text-[#161616] opacity-[60%]">Услуги
-            <svg id="arrowIcon" width="24" height="25" viewBox="0 0 24 25" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 11.5L12 14.5L9 11.5" stroke="#161616" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round"/>
-            </svg>
+<body class="!overflow-x-hidden">
+<header id="header" class="flex justify-center w-full h-[93px] !bg-white fixed z-50 top-0">
+    <div class="z-[110] w-full max-w-[1140px] max-1180px:px-5 max-1180px:w-auto flex m-auto justify-between items-center bg-white flex-grow">
+        <a href="{% url 'index' %}" class="py-5">
+            <img src="{% static 'img/logo.png' %}" alt="" class="h-[53px]">
         </a>
-        <a href="{% url 'portfolio' %}" class="text-[#161616] opacity-[60%]">Работы</a>
-        <a href="{% url 'index' %}#about-us" class="text-[#161616] opacity-[60%] cursor-pointer">О нас</a>
-        <a href="{% url 'contact' %}" class="text-[#161616] opacity-[60%]">Контакты</a>
-    </div>
-    <a href="{{ settings.contacts.telegram }}" class="flex items-center max-1000px:hidden">
-        <svg width="30" height="30" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.5">
-                <rect y="0.5" width="30" height="30" rx="7" fill="#9000FF"/>
-                <path d="M22.8533 9.45113L19.9979 23.0465C19.7848 23.9841 19.1881 24.2398 18.3784 23.771L13.9887 20.532L11.9003 22.5777C11.6446 22.8334 11.4741 23.0039 11.0053 23.0039L11.3037 18.5289L19.4438 11.1985C19.8274 10.9002 19.3586 10.6871 18.8898 11.028L8.83178 17.3356L4.52729 16.0144C3.58968 15.7161 3.54706 15.0768 4.69777 14.608L21.66 8.08733C22.4272 7.789 23.1091 8.2578 22.8533 9.45113Z"
-                      fill="white"/>
-            </g>
-        </svg>
-        <ul class="header-phone-number list-disc text-[18px] ml-7">
-            <li class="font-semibold">{{ settings.contacts.phone }}</li>
-        </ul>
-    </a>
-    <div class="flex items-center max-1000px:hidden">
-        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g opacity="0.6">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M17.5833 7.00039L19.05 5.90039L19.95 7.10039L18.4833 8.20039C18.0073 8.5574 17.4284 8.75039 16.8333 8.75039H13.475C13.1615 8.75039 12.875 8.92749 12.7348 9.20786C12.5618 9.55385 12.6516 9.97353 12.9509 10.2185L14.9509 11.8548C16.7216 13.3036 17.6379 15.5506 17.3853 17.8244L17.3653 18.0039C17.2783 18.7873 17.0858 19.5554 16.793 20.2873L16.1964 21.7789L14.8036 21.2218L15.4003 19.7302C15.6429 19.1238 15.8024 18.4873 15.8745 17.8382L15.8944 17.6588C16.091 15.8903 15.3783 14.1426 14.0011 13.0158L12.0011 11.3794C11.1591 10.6905 10.9066 9.51014 11.3931 8.53704C11.7874 7.7485 12.5934 7.25039 13.475 7.25039H16.8333C17.1038 7.25039 17.367 7.16267 17.5833 7.00039Z"
-                      fill="#161616"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M7.2999 12.6382C7.4409 11.7921 6.70743 11.0587 5.8614 11.1997L2.62331 11.7394L2.37671 10.2598L5.61481 9.72008C7.47606 9.40987 9.0897 11.0235 8.77949 12.8848L8.64497 13.6918C8.45827 14.8121 9.02401 15.923 10.0398 16.4309C11.4034 17.1127 12.1105 18.6501 11.7407 20.1291L11.2276 22.1815L9.7724 21.8177L10.2855 19.7653C10.4847 18.9683 10.1037 18.1399 9.36896 17.7726C7.76421 16.9702 6.87042 15.215 7.16538 13.4452L7.2999 12.6382Z"
-                      fill="#161616"/>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M12 21C16.6944 21 20.5 17.1944 20.5 12.5C20.5 7.80558 16.6944 4 12 4C7.30558 4 3.5 7.80558 3.5 12.5C3.5 17.1944 7.30558 21 12 21ZM12 22.5C17.5228 22.5 22 18.0228 22 12.5C22 6.97715 17.5228 2.5 12 2.5C6.47715 2.5 2 6.97715 2 12.5C2 18.0228 6.47715 22.5 12 22.5Z"
-                      fill="#161616"/>
-            </g>
-        </svg>
-        <div class="flex ml-2">
-            <a href="{% url 'switch_language' 'ru' %}"
-               class="lang {% if request.LANGUAGE_CODE == 'ru' %}active{% endif %}">Ru</a>
-            <a href="{% url 'switch_language' 'uz' %}"
-               class="lang {% if request.LANGUAGE_CODE == 'uz' %}active{% endif %}">Uz</a>
+        <div class="flex gap-[35px] max-1000px:hidden">
+            <a href="#" id="servicesBtn" class="flex text-[#161616] opacity-[60%]">Услуги
+                <svg id="arrowIcon" width="24" height="25" viewBox="0 0 24 25" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 11.5L12 14.5L9 11.5" stroke="#161616" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <a href="{% url 'portfolio' %}" class="text-[#161616] opacity-[60%]">Работы</a>
+            <a href="{% url 'index' %}#about-us" class="text-[#161616] opacity-[60%] cursor-pointer">О нас</a>
+            <a href="{% url 'contact' %}" class="text-[#161616] opacity-[60%]">Контакты</a>
         </div>
-    </div>
-    <div class="hidden max-1000px:!flex transform scale-x-[-1]">
-        <button class="hamburger hamburger--squeeze" type="button" id="burgerMenuBtn">
+        <div class="flex gap-[35px] max-1000px:hidden">
+            <a href="{{ settings.contacts.telegram }}" class="flex items-center max-1000px:hidden">
+                <svg width="30" height="30" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.5">
+                        <rect y="0.5" width="30" height="30" rx="7" fill="#9000FF"/>
+                        <path d="M22.8533 9.45113L19.9979 23.0465C19.7848 23.9841 19.1881 24.2398 18.3784 23.771L13.9887 20.532L11.9003 22.5777C11.6446 22.8334 11.4741 23.0039 11.0053 23.0039L11.3037 18.5289L19.4438 11.1985C19.8274 10.9002 19.3586 10.6871 18.8898 11.028L8.83178 17.3356L4.52729 16.0144C3.58968 15.7161 3.54706 15.0768 4.69777 14.608L21.66 8.08733C22.4272 7.789 23.1091 8.2578 22.8533 9.45113Z"
+                              fill="white"/>
+                    </g>
+                </svg>
+                <ul class="header-phone-number list-disc text-[18px] ml-7">
+                    <li class="font-semibold"><a
+                            href="tel:{{ settings.contacts.phone }}">{{ settings.contacts.phone }}</a></li>
+                </ul>
+            </a>
+        </div>
+        <div class="flex items-center max-1000px:hidden">
+            <div class="flex ml-2">
+                <a href="{% url 'switch_language' 'ru' %}"
+                   class="lang {% if request.LANGUAGE_CODE == 'ru' %}active{% endif %}">Ru</a>
+                <a href="{% url 'switch_language' 'uz' %}"
+                   class="lang {% if request.LANGUAGE_CODE == 'uz' %}active{% endif %}">Uz</a>
+            </div>
+        </div>
+        <div class="hidden max-1000px:!flex transform scale-x-[-1]">
+            <button class="hamburger hamburger--squeeze" type="button" id="burgerMenuBtn">
               <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
               </span>
-        </button>
+            </button>
+        </div>
     </div>
 </header>
 
@@ -102,7 +93,7 @@
     </div>
     <a class="flex items-center mt-[50px] mb-[30px]">
         <ul class="header-phone-number list-disc text-[18px] font-semibold ml-7">
-            <li>{{ settings.contacts.phone }}</li>
+            <li><a href="tel:{{ settings.contacts.phone }}">{{ settings.contacts.phone }}</a></li>
         </ul>
     </a>
     <div class="flex items-center gap-4">

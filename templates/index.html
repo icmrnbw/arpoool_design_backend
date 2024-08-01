@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <section
-            class="relative pb-[30px] w-[1140px] max-[500px]:pt-10 max-1180px:px-5 max-1180px:w-auto m-auto flex flex-col justify-center pt-[139px] text-center overflow-hidden">
+            class="relative pb-[30px] w-[1140px] max-[500px]:pt-10 max-1180px:px-5 max-1180px:w-auto m-auto flex flex-col justify-center pt-[99px] text-center overflow-hidden">
         <img src="{% static 'img/bg.gif' %}" alt="Background GIF"
              class="background-gif max-[500px]:h-[360px] max-[500px]:w-[360px] absolute top-1/2 left-1/2 w-[500px] h-[500px] object-cover transform -translate-x-1/2 -translate-y-1/2">
         <h2 style="text-transform: uppercase;"
@@ -21,7 +21,7 @@
     <div class="w-[1140px] max-900px:hidden max-1180px:px-5 max-1180px:w-auto mx-auto flex items-center justify-between mt-[96px] relative z-10">
         <a href="{% url 'portfolio' %}"
            class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px]  transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Портфолио</a>
-        <a href="{{ settings.contacts.telegram }}"
+        <a href="https://t.me/{{ settings.contacts.phone }}"
            class="py-2.5 px-[50px] bg-white border-[1px] border-[#9000FF] rounded-[100px] transition-colors duration-300 hover:bg-[#9000FF] hover:text-white">Написать
             в
             телеграм</a>
@@ -78,7 +78,7 @@
                 </div>
                 <div>
                     <img src="{{ project.preview.url }}" alt="FINSUM"
-                         class="max-w-[680px] w-full h-full object-cover rounded-[30px] rotate-[2.05deg]">
+                         class="max-w-[680px] w-full h-full object-cover rounded-[30px]">
                 </div>
             </div>
             {#    <div class="flex flex-row-reverse max-1000px:flex-col items-center justify-between mt-[70px] max-1000px:mt-[50px]">#}

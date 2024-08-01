@@ -107,6 +107,7 @@ header {
 }
 
 .header-menu {
+    display: none;
     position: absolute;
     margin-top: 93px;
     padding-bottom: 93px;
@@ -123,6 +124,7 @@ header {
 
 .header-menu.expanded {
     transform: translateX(0);
+    display: flex;
 }
 
 .header-menu.expanded body {

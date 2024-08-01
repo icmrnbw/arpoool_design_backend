@@ -4,7 +4,7 @@
 {% block content %}
 
     <section
-            class="w-[1140px] max-1000px:pb-[90px] max-1180px:px-5 max-1180px:w-auto m-auto flex flex-col justify-center mt-[139px] text-center pb-[190px]">
+            class="w-[1140px] relative max-1000px:pb-[20px] max-1180px:px-5 max-1180px:w-auto m-auto flex flex-col justify-center mt-[139px] text-center pb-[50px]">
         <img src="{% static 'img/bg.gif' %}" alt="Background GIF"
              class="background-gif max-[500px]:top-[20%] max-[500px]:h-[120px] max-[500px]:w-[120px] absolute left-[97%] w-[312px] h-[312px] object-cover transform -translate-x-1/2 -translate-y-1/2">
         <h2 style="text-transform: uppercase"
@@ -12,10 +12,13 @@
             {{ settings.portfolio.header }}</h2>
         <p class="self-center w-[60%] max-[500px]:w-full max-1000px:text-[15px] max-[500px]:text-[12px] text-[#161616] text-[18px] mb-[30px]">
             {{ settings.portfolio.text }}</p>
-        <svg class="self-center cursor-pointer" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M28.6008 22.9284C29.025 22.5748 29.0824 21.9442 28.7288 21.52C28.3752 21.0957 27.7447 21.0384 27.3204 21.3919L28.6008 22.9284ZM21 27.9607L20.3598 28.7289C20.7306 29.0379 21.2693 29.0379 21.6401 28.7289L21 27.9607ZM14.6795 21.3919C14.2552 21.0384 13.6247 21.0957 13.2711 21.52C12.9175 21.9442 12.9749 22.5748 13.3991 22.9284L14.6795 21.3919ZM22 14.0394C22 13.4871 21.5522 13.0394 21 13.0394C20.4477 13.0394 20 13.4871 20 14.0394H22ZM27.3204 21.3919L20.3598 27.1925L21.6401 28.7289L28.6008 22.9284L27.3204 21.3919ZM21.6401 27.1925L14.6795 21.3919L13.3991 22.9284L20.3598 28.7289L21.6401 27.1925ZM22 27.9607L22 14.0394H20L20 27.9607H22ZM31.4298 31.4298C25.6696 37.1901 16.3304 37.1901 10.5702 31.4298L9.15596 32.844C15.6972 39.3853 26.3028 39.3853 32.844 32.844L31.4298 31.4298ZM10.5702 31.4298C4.80994 25.6696 4.80994 16.3304 10.5702 10.5702L9.15596 9.15596C2.61468 15.6972 2.61468 26.3028 9.15596 32.844L10.5702 31.4298ZM10.5702 10.5702C16.3304 4.80994 25.6696 4.80994 31.4298 10.5702L32.844 9.15596C26.3028 2.61468 15.6972 2.61468 9.15596 9.15596L10.5702 10.5702ZM31.4298 10.5702C37.1901 16.3304 37.1901 25.6696 31.4298 31.4298L32.844 32.844C39.3853 26.3028 39.3853 15.6972 32.844 9.15596L31.4298 10.5702Z"
-                  fill="#9000FF"/>
-        </svg>
+        <a href="#works" class="flex justify-center">
+            <svg class="self-center cursor-pointer" width="42" height="42" viewBox="0 0 42 42" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M28.6008 22.9284C29.025 22.5748 29.0824 21.9442 28.7288 21.52C28.3752 21.0957 27.7447 21.0384 27.3204 21.3919L28.6008 22.9284ZM21 27.9607L20.3598 28.7289C20.7306 29.0379 21.2693 29.0379 21.6401 28.7289L21 27.9607ZM14.6795 21.3919C14.2552 21.0384 13.6247 21.0957 13.2711 21.52C12.9175 21.9442 12.9749 22.5748 13.3991 22.9284L14.6795 21.3919ZM22 14.0394C22 13.4871 21.5522 13.0394 21 13.0394C20.4477 13.0394 20 13.4871 20 14.0394H22ZM27.3204 21.3919L20.3598 27.1925L21.6401 28.7289L28.6008 22.9284L27.3204 21.3919ZM21.6401 27.1925L14.6795 21.3919L13.3991 22.9284L20.3598 28.7289L21.6401 27.1925ZM22 27.9607L22 14.0394H20L20 27.9607H22ZM31.4298 31.4298C25.6696 37.1901 16.3304 37.1901 10.5702 31.4298L9.15596 32.844C15.6972 39.3853 26.3028 39.3853 32.844 32.844L31.4298 31.4298ZM10.5702 31.4298C4.80994 25.6696 4.80994 16.3304 10.5702 10.5702L9.15596 9.15596C2.61468 15.6972 2.61468 26.3028 9.15596 32.844L10.5702 31.4298ZM10.5702 10.5702C16.3304 4.80994 25.6696 4.80994 31.4298 10.5702L32.844 9.15596C26.3028 2.61468 15.6972 2.61468 9.15596 9.15596L10.5702 10.5702ZM31.4298 10.5702C37.1901 16.3304 37.1901 25.6696 31.4298 31.4298L32.844 32.844C39.3853 26.3028 39.3853 15.6972 32.844 9.15596L31.4298 10.5702Z"
+                      fill="#9000FF"/>
+            </svg>
+        </a>
         <img src="{% static 'img/bg.gif' %}" alt="Background GIF"
              class="background-gif max-[500px]:top-[48%] max-[500px]:h-[110px] max-[500px]:w-[110px] absolute top-[55%] left-[2%] w-[269px] h-[269px] object-cover transform -translate-x-1/2 -translate-y-1/2">
     </section>
@@ -39,7 +42,7 @@
 
     </section>
 
-    <section class="w-[1122px] max-[1164px]:px-5 max-[1164px]:w-auto m-auto">
+    <section id="works" class="w-[1122px] max-[1164px]:px-5 max-[1164px]:w-auto m-auto">
         {% for project in projects %}
             {% if project|length == 1 %}
                 <div class="mb-[90px] max-[500px]:mb-[30px]">
@@ -52,7 +55,7 @@
                         </div>
                         <div class="mb-4">
                             <img src="{{ project.0.preview.url }}" alt="FINSUM"
-                                 class="object-cover max-h-[500px] w-full max-[500px]:rounded-[7px] rounded-[30px] -rotate-[2.13deg]">
+                                 class="object-cover max-h-[500px] w-full max-[500px]:rounded-[7px] rounded-[30px]">
                         </div>
                     </a>
                 </div>
@@ -72,7 +75,7 @@
                                         <div class="mb-[21px] max-[320px]:mb-[15px] max-h-[500px] h-full w-full">
                                             <img src="{{ item.preview.url }}" alt="FINSUM"
                                                  class="object-cover max-h-[500px] h-full w-full max-[500px]:rounded-[7px] rounded-[30px]"
-                                                 style="transform: rotate({{ forloop.counter|get_degree }}deg)">
+                                            >
                                         </div>
                                     </div>
                                 </a>
