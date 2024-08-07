@@ -1002,11 +1002,6 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.rotate-\[2\.05deg\] {
-  --tw-rotate: 2.05deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .scale-50 {
   --tw-scale-x: .5;
   --tw-scale-y: .5;
@@ -1118,10 +1113,6 @@ video {
   overflow-x: auto;
 }
 
-.overflow-x-hidden {
-  overflow-x: hidden;
-}
-
 .\!overflow-x-hidden {
   overflow-x: hidden !important;
 }
@@ -1180,6 +1171,11 @@ video {
   border-color: transparent;
 }
 
+.\!bg-white {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+}
+
 .bg-\[\#161616\] {
   --tw-bg-opacity: 1;
   background-color: rgb(22 22 22 / var(--tw-bg-opacity));
@@ -1198,11 +1194,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.\!bg-white {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
 }
 
 .bg-gradient-to-l {
@@ -1287,12 +1278,12 @@ video {
   padding-bottom: 1.25rem;
 }
 
-.pb-\[190px\] {
-  padding-bottom: 190px;
-}
-
 .pb-\[30px\] {
   padding-bottom: 30px;
+}
+
+.pb-\[50px\] {
+  padding-bottom: 50px;
 }
 
 .pb-\[55px\] {
@@ -1315,24 +1306,16 @@ video {
   padding-top: 99px;
 }
 
-.pb-\[140px\] {
-  padding-bottom: 140px;
+.pt-\[192px\] {
+  padding-top: 192px;
 }
 
-.pb-\[100px\] {
-  padding-bottom: 100px;
+.pt-\[28px\] {
+  padding-top: 28px;
 }
 
-.pb-\[0px\] {
-  padding-bottom: 0px;
-}
-
-.pb-\[80px\] {
-  padding-bottom: 80px;
-}
-
-.pb-\[50px\] {
-  padding-bottom: 50px;
+.pt-\[285px\] {
+  padding-top: 285px;
 }
 
 .text-center {
@@ -1533,6 +1516,11 @@ header {
 }
 
 .hidden-block {
+  padding-top: 93px;
+  position: fixed;
+  width: 100%;
+  z-index: 49;
+  background-color: white;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease, box-shadow 0.5s ease;
@@ -1541,7 +1529,7 @@ header {
 }
 
 .hidden-block.expanded {
-  max-height: 93px;
+  max-height: 186px;
 }
 
 .rotate {
@@ -1760,18 +1748,6 @@ body.no-scroll {
 
   .max-1000px\:rounded-none {
     border-radius: 0px;
-  }
-
-  .max-1000px\:pb-\[90px\] {
-    padding-bottom: 90px;
-  }
-
-  .max-1000px\:pb-\[50px\] {
-    padding-bottom: 50px;
-  }
-
-  .max-1000px\:pb-\[30px\] {
-    padding-bottom: 30px;
   }
 
   .max-1000px\:pb-\[20px\] {

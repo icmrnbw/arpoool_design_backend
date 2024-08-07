@@ -79,3 +79,24 @@ document.addEventListener('DOMContentLoaded', function () {
         body.classList.remove('no-scroll');
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollButton = document.getElementById('scroll-button');
+    const targetElement = document.getElementById('about-us');
+    const intermediaryBlock = document.getElementById('scrollImage');
+
+    const scrollToTarget = () => {
+        const intermediaryHeight = intermediaryBlock.offsetHeight;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - intermediaryHeight;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    };
+
+    scrollButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        scrollToTarget();
+    });
+});

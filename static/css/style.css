@@ -91,6 +91,11 @@ header {
 }
 
 .hidden-block {
+    padding-top: 93px;
+    position: fixed;
+    width: 100%;
+    z-index: 49;
+    background-color: white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease, box-shadow 0.5s ease;
@@ -98,7 +103,7 @@ header {
 }
 
 .hidden-block.expanded {
-    max-height: 93px;
+    max-height: 186px;
 }
 
 .rotate {
